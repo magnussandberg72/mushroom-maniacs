@@ -31,7 +31,7 @@
 
     main {
       padding: 40px 20px;
-      max-width: 600px;
+      max-width: 650px;
       margin: 0 auto;
     }
 
@@ -49,7 +49,7 @@
     }
 
     h1 {
-      font-size: 38px;
+      font-size: 36px;
       text-shadow: 0 0 10px rgba(255,255,255,0.6);
     }
 
@@ -57,10 +57,10 @@
       font-size: 18px;
       color: #eaf4ff;
       margin-bottom: 25px;
-      text-shadow: 0 0 8px rgba(255,255,255,0.4);
       background: rgba(255,255,255,0.1);
       padding: 15px;
       border-radius: 10px;
+      text-shadow: 0 0 8px rgba(255,255,255,0.4);
     }
 
     textarea {
@@ -103,6 +103,23 @@
       color: #d8eaff;
       font-style: italic;
       text-shadow: 0 0 8px rgba(255,255,255,0.5);
+    }
+
+    #prayerList {
+      display: none;
+      margin-top: 40px;
+      background: rgba(255,255,255,0.08);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      text-align: left;
+    }
+
+    #prayerItems li {
+      margin: 8px 0;
+      padding: 8px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
     }
 
     .example {
@@ -168,6 +185,11 @@
     <button onclick="sendPrayer()">Skicka bön 🙏🏼</button>
     <p id="thankyou">✨ Tack, din bön har nått himlen. ✝️</p>
 
+    <div id="prayerList">
+      <h2>Dina böner:</h2>
+      <ul id="prayerItems" style="list-style:none;padding-left:0;"></ul>
+    </div>
+
     <div class="example">
       <h2>Exempelbön:</h2>
       <p>
@@ -202,8 +224,18 @@
     function sendPrayer() {
       const box = document.getElementById('prayer');
       const msg = document.getElementById('thankyou');
-      if (box.value.trim() !== '') {
+      const list = document.getElementById('prayerList');
+      const items = document.getElementById('prayerItems');
+
+      const text = box.value.trim();
+      if (text !== '') {
         msg.style.display = 'block';
+        list.style.display = 'block';
+
+        const li = document.createElement('li');
+        li.textContent = text;
+        items.prepend(li); // senaste bönen överst
+
         box.value = '';
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
       }
