@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hälsans Kyrka – Faith, Peace & Healing</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/header.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+  <link rel="icon" type="image/png" href="../images/mushroom-logo.png" />
+</head>
+
+<body>
+  <!-- Global header -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("../includes/header.html")
+      .then(r => r.text())
+      .then(h => (document.getElementById("header-placeholder").innerHTML = h));
+  </script>
+
+  <main class="health">
+    <section class="hero">
+      <h1>✝️ Hälsans Kyrka</h1>
+      <p class="subtitle">
+        “Where the heart finds rest, and the soul finds light.”  
+      </p>
+      <a href="../donate.html" class="hero-btn">Stödj 🙏🏼</a>
+    </section>
+
+    <section class="intro">
+      <h2>Digital kyrka – verklig tröst</h2>
+      <p>
+        Hälsans Kyrka är en plats där du kan finna ro, tro och hopp.  
+        Vi tror att helande sker när hjärtat öppnas – i stillhet, i musik,  
+        och i kärlek till Gud och människor.
+      </p>
+    </section>
+
+    <section class="sections">
+      <div class="card" onclick="location.href='prayer.html'">
+        <h3>🙏 Bön & Förbön</h3>
+        <p>Skriv din bön eller tänd ett ljus för någon i nöd.</p>
+      </div>
+
+      <div class="card" onclick="location.href='testimonies.html'">
+        <h3>💬 Vittnesbörd</h3>
+        <p>Berättelser om helande, tro och kärlek.</p>
+      </div>
+
+      <div class="card" onclick="location.href='playlist.html'">
+        <h3>🎵 Kristen Musik</h3>
+        <p>Lyssna på vår Spotify-lista – musik för själens vila.</p>
+      </div>
+    </section>
+
+    <section class="faith">
+      <blockquote>
+        “He heals the brokenhearted and binds up their wounds.”  
+        <span>– Psalm 147:3 ✝️</span>
+      </blockquote>
+    </section>
+  </main>
+
+  <!-- Global footer -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("../includes/footer.html")
+      .then(r => r.text())
+      .then(f => (document.getElementById("footer-placeholder").innerHTML = f));
+  </script>
+</body>
+</html>
