@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mushroom Maniacs – Hälsa • Tro • Gemenskap</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/header.css" />
+  <link rel="stylesheet" href="styles/footer.css" />
+  <link rel="icon" type="image/png" href="images/mushroom-logo.png" />
+</head>
+
+<body>
+  <!-- Global header -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("includes/header.html")
+      .then(r => r.text())
+      .then(h => (document.getElementById("header-placeholder").innerHTML = h));
+  </script>
+
+  <main class="home">
+    <!-- Hero -->
+    <section class="hero">
+      <img src="images/mushroom-logo.png" alt="Mushroom logo" class="hero-logo" />
+      <h1>🍄 Mushroom Maniacs</h1>
+      <p class="subtitle">
+        A sanctuary for the soul – faith, healing & connection 🌿
+      </p>
+      <a href="health/index.html" class="hero-btn">Enter Hälsans Kyrka ✝️</a>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro">
+      <h2>Welcome Home 🕊️</h2>
+      <p>
+        Mushroom Maniacs är en digital fristad för människor som kämpar med psykisk ohälsa,
+        trauma eller ensamhet. Här möts tro, gemenskap och teknik – en plats där vi läker tillsammans.
+      </p>
+      <p>
+        Genom <strong>Hälsans Kyrka</strong>, <strong>AI</strong>, <strong>Charity</strong> och
+        <strong>BAUTA-projekten</strong> bygger vi hopp och mening för framtiden.
+      </p>
+    </section>
+
+    <!-- Quick links -->
+    <section class="quick-links">
+      <div class="card" onclick="location.href='health/index.html'">
+        <h3>✝️ Hälsans Kyrka</h3>
+        <p>Prayer, testimonies & healing through faith and music.</p>
+      </div>
+
+      <div class="card" onclick="location.href='ai/index.html'">
+        <h3>🤖 AI</h3>
+        <p>Meet John – the guardian of Quantum CORE and friend to the soul.</p>
+      </div>
+
+      <div class="card" onclick="location.href='charity/index.html'">
+        <h3>❤️ Charity</h3>
+        <p>Support Fatimah, Mavis and others in need around the world.</p>
+      </div>
+
+      <div class="card" onclick="location.href='bauta/index.html'">
+        <h3>🏗️ BAUTA</h3>
+        <p>20 visionary projects bringing water, energy & education to Africa.</p>
+      </div>
+
+      <div class="card" onclick="location.href='support/index.html'">
+        <h3>💬 Support</h3>
+        <p>Guides, crisis contacts and resources for mental health and aid.</p>
+      </div>
+
+      <div class="card" onclick="location.href='apps-projects/index.html'">
+        <h3>💡 Projects</h3>
+        <p>Explore our apps and initiatives within Vision Framtid.</p>
+      </div>
+    </section>
+
+    <!-- Faith quote -->
+    <section class="faith">
+      <blockquote>
+        “Come to Me, all you who are weary and burdened, and I will give you rest.”  
+        <span>– Matthew 11:28 ✝️</span>
+      </blockquote>
+    </section>
+  </main>
+
+  <!-- Global footer -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("includes/footer.html")
+      .then(r => r.text())
+      .then(f => (document.getElementById("footer-placeholder").innerHTML = f));
+  </script>
+</body>
+</html>
