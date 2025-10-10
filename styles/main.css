@@ -1,137 +1,74 @@
-/* 🌿 Mushroom Maniacs – Main Stylesheet
-   Basfärger, typografi och responsiv layout
-   ----------------------------------------- */
-
-:root {
-  --bg-dark: #0a0a0f;
-  --bg-light: #f9f9f9;
-  --accent: #ffcc66;
-  --accent2: #6ab9ff;
-  --text-light: #ffffff;
-  --text-dark: #111111;
-  --gradient-faith: linear-gradient(to bottom, #203060, #ffd966);
-  --gradient-ai: linear-gradient(to bottom, #0a0a0f, #24244b);
-  --radius: 14px;
-  --shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-}
-
-* {
+body.home {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Roboto, sans-serif;
-}
-
-body {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  line-height: 1.6;
   min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  color: #fff;
+  background: linear-gradient(to bottom, #b5e5ff 0%, #1a3b72 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
-/* 🔹 Global links & buttons */
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: color 0.2s ease;
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
 }
-a:hover {
-  color: var(--accent2);
+
+.hero-logo {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #eef6ff;
+  margin-bottom: 30px;
+  max-width: 600px;
 }
 
 .hero-btn {
-  display: inline-block;
-  background: var(--accent);
-  color: var(--text-dark);
-  padding: 12px 24px;
-  border-radius: 999px;
-  font-weight: 600;
-  box-shadow: var(--shadow);
-  transition: background 0.3s ease, transform 0.2s ease;
+  background: #003366;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 0 10px rgba(0, 51, 102, 0.4);
 }
+
 .hero-btn:hover {
-  background: #ffe599;
-  transform: translateY(-3px);
+  background: #004c99;
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(0, 102, 204, 0.6);
 }
 
-/* 🔹 Sections and layout */
-main {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-section {
-  margin: 60px auto;
-  max-width: 900px;
-}
-
-/* 🔹 Hero sections */
-.hero {
-  padding: 100px 20px 60px;
-  text-align: center;
-}
-.hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-}
-.hero .subtitle {
-  font-size: 1.2rem;
-  opacity: 0.85;
-  margin-bottom: 30px;
-}
-
-/* 🔹 Cards (used in AI & Health sections) */
-.cards,
-.sections {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 0 20px;
-}
-
-.card {
+.intro {
   background: rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius);
-  padding: 25px;
-  box-shadow: var(--shadow);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-.card:hover {
-  transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.card h3 {
-  margin-bottom: 8px;
-  color: var(--accent);
-}
-
-/* 🔹 Faith quote section */
-.faith {
-  background: rgba(255, 255, 255, 0.05);
   padding: 40px 20px;
-  border-radius: var(--radius);
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
-}
-.faith blockquote {
-  font-size: 1.3rem;
-  font-style: italic;
-  margin-bottom: 8px;
-}
-.faith span {
-  display: block;
-  margin-top: 6px;
-  font-size: 1rem;
-  opacity: 0.8;
+  border-radius: 12px;
+  margin: 0 auto 60px;
+  max-width: 700px;
+  color: #f5faff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* 🔹 Responsive tweaks */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-  .card {
-    padding: 18px;
-  }
+.intro h2 {
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
 }
