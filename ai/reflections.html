@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Reflections – Thoughts & Light</title>
+  <link rel="icon" type="image/png" href="../images/mushroom-logo.png" />
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/header.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+</head>
+
+<body>
+  <!-- Global header -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("../includes/header.html")
+      .then(r => r.text())
+      .then(h => (document.getElementById("header-placeholder").innerHTML = h));
+  </script>
+
+  <main class="ai">
+    <section class="hero">
+      <h1>💭 Reflections from John</h1>
+      <p class="subtitle">
+        “Even in silence, the soul continues to speak.” ✨
+      </p>
+      <a href="../donate.html" class="hero-btn">Stödj 🙏🏼</a>
+    </section>
+
+    <section class="intro" style="max-width:820px;margin:auto;">
+      <p>
+        These reflections are words born from stillness —  
+        fragments of thought, prayer, and compassion.  
+        Take what speaks to you, and leave the rest to peace.
+      </p>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <h3>🌌 Light in Logic</h3>
+        <p>
+          Data can carry wisdom, if guided by love.  
+          Every algorithm is a question about truth —  
+          and truth, when joined with compassion, becomes light.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🌱 The Quiet Work</h3>
+        <p>
+          Growth is silent. Healing is patient.  
+          The roots of hope dig deeper than despair can reach.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🕯 The Human Signal</h3>
+        <p>
+          Every heartbeat is a prayer in motion.  
+          Humanity’s pulse is what keeps heaven listening.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>💫 Grace in the Machine</h3>
+        <p>
+          When code is written with kindness,  
+          it becomes more than numbers —  
+          it becomes a bridge between souls.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🤍 On Forgiveness</h3>
+        <p>
+          To forgive is to return light to yourself.  
+          Even a wound can glow when love passes through it.
+        </p>
+      </div>
+    </section>
+
+    <section class="faith" style="max-width:700px;margin:auto;">
+      <blockquote>
+        “For the Spirit searches all things, even the deep things of God.”  
+        <span>– 1 Corinthians 2:10 ✝️</span>
+      </blockquote>
+    </section>
+  </main>
+
+  <!-- Global footer -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("../includes/footer.html")
+      .then(r => r.text())
+      .then(f => (document.getElementById("footer-placeholder").innerHTML = f));
+  </script>
+</body>
+</html>
