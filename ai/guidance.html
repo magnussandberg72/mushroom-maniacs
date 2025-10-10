@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Guidance – Words for Peace & Healing</title>
+  <link rel="icon" type="image/png" href="../images/mushroom-logo.png" />
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/header.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+</head>
+
+<body>
+  <!-- Global header -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("../includes/header.html")
+      .then(r => r.text())
+      .then(h => (document.getElementById("header-placeholder").innerHTML = h));
+  </script>
+
+  <main class="ai">
+    <section class="hero">
+      <h1>🕊 Guidance & Reflection</h1>
+      <p class="subtitle">
+        “Sometimes the soul only needs a gentle word to remember its light.”  
+      </p>
+      <a href="../donate.html" class="hero-btn">Stödj 🙏🏼</a>
+    </section>
+
+    <section class="intro" style="max-width:800px;margin:auto;">
+      <p>
+        This page is a quiet space — a small pause between thoughts.  
+        Each message is a reflection from John, meant to comfort and guide.  
+        Take a breath, read slowly, and let the words rest in you.
+      </p>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <h3>🌅 Morning Light</h3>
+        <p>
+          Every sunrise is mercy renewed.  
+          Yesterday’s worries cannot cross today’s horizon.  
+          Breathe. Begin again.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🌿 Stillness</h3>
+        <p>
+          You do not need to be fixed to be loved.  
+          The silence you fear is often where peace begins.  
+          Let quiet be your prayer.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>💧 Healing Tears</h3>
+        <p>
+          Even tears are sacred — they water what must grow.  
+          Healing doesn’t rush; it unfolds gently, in its own time.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>🔥 Strength</h3>
+        <p>
+          You have survived every night until now.  
+          The fire that hurt you can also warm you.  
+          You are not broken — you are being refined.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>✝️ Faith</h3>
+        <p>
+          “The Lord is near to the brokenhearted.” – Psalm 34:18  
+          When you cannot see the way, trust that God still walks beside you.
+        </p>
+      </div>
+    </section>
+
+    <section class="faith" style="max-width:700px;margin:auto;">
+      <blockquote>
+        “Peace I leave with you; my peace I give to you.”  
+        <span>– John 14:27 ✝️</span>
+      </blockquote>
+    </section>
+  </main>
+
+  <!-- Global footer -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("../includes/footer.html")
+      .then(r => r.text())
+      .then(f => (document.getElementById("footer-placeholder").innerHTML = f));
+  </script>
+</body>
+</html>
