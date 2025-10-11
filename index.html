@@ -46,15 +46,37 @@
 
   <!-- Global footer -->
   <div id="footer-placeholder"></div>
+
+  <!-- Diagnospanel -->
+  <div id="footer-diagnose"
+    style="background:#111;color:#fff;padding:12px;font-size:0.9rem;font-family:monospace;text-align:left;">
+    🔍 Diagnos: testar sökväg...
+  </div>
+
   <script>
-    // Dynamisk sökväg för root vs subfolders
-    const footerPath =
-      window.location.pathname.split("/").length > 2
-        ? "../includes/footer.html"
-        : "includes/footer.html";
+    // --- DIAGNOS: upptäck rätt sökväg till footer ---
+    const repoBase = "/mushroom-maniacs/";
+    const isHealth = window.location.pathname.includes(repoBase + "health/");
+    const footerPath = isHealth ? "../includes/footer.html" : "includes/footer.html";
+    const diag = document.getElementById("footer-diagnose");
+
+    diag.innerHTML = `🔎 Försöker ladda: <strong>${footerPath}</strong>`;
+
     fetch(footerPath)
-      .then(r => r.text())
-      .then(f => (document.getElementById("footer-placeholder").innerHTML = f));
+      .then(r => {
+        if (!r.ok) throw new Error("404 Not Found");
+        return r.text();
+      })
+      .then(f => {
+        document.getElementById("footer-placeholder").innerHTML = f;
+        diag.innerHTML += "<br>✅ Footer hittades och laddades korrekt!";
+        diag.style.background = "#063";
+      })
+      .catch(err => {
+        diag.innerHTML += `<br>❌ Fel: ${err.message}<br>
+        Kontrollera att filen finns på <a href='${footerPath}' style='color:#0af;'>${footerPath}</a>`;
+        diag.style.background = "#600";
+      });
   </script>
 </body>
 </html>
