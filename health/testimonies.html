@@ -1,207 +1,128 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vittnesbörd ✝️ Hälsans Kyrka</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vittnesbörd ♥️ – Kyrkan</title>
   <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="icon" type="image/png" href="../public/M-M-logo.png" />
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #f5c8ff, #6e53a5);
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(to bottom, #b5d9ff, #00214d);
       color: #fff;
       text-align: center;
       min-height: 100vh;
-      animation: fadeIn 2s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    header {
-      background: rgba(0,0,0,0.5);
-      padding: 15px 0;
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    main {
-      padding: 40px 20px;
-      max-width: 700px;
-      margin: 0 auto;
+      animation: fadeIn 1.5s ease-in;
     }
 
     h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-      text-shadow: 0 0 10px rgba(255,255,255,0.6);
+      font-size: 38px;
+      margin-top: 40px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.7);
     }
 
-    p.intro {
+    p.subtitle {
+      font-style: italic;
+      color: #eaf4ff;
       font-size: 18px;
-      color: #fff0f5;
-      margin-bottom: 25px;
-      background: rgba(255,255,255,0.1);
-      padding: 15px;
-      border-radius: 10px;
+      margin-bottom: 30px;
     }
 
-    input, textarea {
+    .testimony-box {
+      background: rgba(255,255,255,0.08);
+      border-radius: 14px;
+      width: 90%;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    textarea {
       width: 100%;
+      min-height: 120px;
+      padding: 10px;
+      border-radius: 8px;
       border: none;
-      border-radius: 10px;
-      padding: 15px;
-      font-size: 16px;
-      outline: none;
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-      box-shadow: 0 0 10px rgba(255,255,255,0.2);
-      margin-bottom: 15px;
+      resize: none;
+      font-family: system-ui, sans-serif;
+      font-size: 1rem;
+      background-color: #fff;
+      color: #000;
     }
-
-    textarea { height: 140px; resize: none; }
 
     button {
-      background: linear-gradient(90deg, #f7a8e3, #c87aff);
-      border: none;
-      border-radius: 50px;
+      margin-top: 15px;
+      background-color: #333;
       color: #fff;
       font-weight: bold;
-      font-size: 18px;
-      padding: 12px 35px;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
       cursor: pointer;
-      box-shadow: 0 0 15px rgba(255, 180, 255, 0.4);
-      transition: all 0.2s ease-in-out;
+      transition: background-color 0.25s;
     }
 
     button:hover {
-      transform: scale(1.05);
-      background: linear-gradient(90deg, #d08fff, #a74fff);
-      box-shadow: 0 0 25px rgba(255,255,255,0.5);
+      background-color: #444;
     }
 
-    #thankyou {
-      display: none;
-      margin-top: 20px;
-      color: #fff8fb;
-      font-style: italic;
-    }
-
-    #testimonyList {
-      display: none;
+    .testimony-list {
       margin-top: 40px;
-      background: rgba(255,255,255,0.08);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      width: 90%;
+      max-width: 480px;
+      margin-inline: auto;
       text-align: left;
     }
 
-    #testimonyItems li {
-      margin: 10px 0;
-      padding: 10px;
-      background: rgba(255,255,255,0.1);
+    .testimony-item {
+      background: rgba(255,255,255,0.08);
+      padding: 12px 16px;
       border-radius: 8px;
-      line-height: 1.5;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
     }
 
-    .bible {
-      font-style: italic;
-      display: block;
-      margin-top: 40px;
-      color: #fff0f8;
-      text-shadow: 0 0 8px rgba(255,255,255,0.6);
-    }
-
-    footer {
-      background: rgba(0,0,0,0.6);
-      padding: 20px;
-      font-size: 14px;
-      color: #ddd;
-      margin-top: 60px;
-    }
-
-    footer nav a {
-      margin: 0 10px;
-      color: #ffd85c;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer nav a:hover {
-      color: #fff;
+    .testimony-item strong {
+      color: #ffb347;
     }
   </style>
 </head>
+
 <body>
-
   <header>🍄 Mushroom Maniacs</header>
+  <h1>Vittnesbörd ♥️</h1>
+  <p class="subtitle">Dela ditt vittnesbörd – din berättelse kan ge någon annan hopp.</p>
 
-  <main>
-    <h1>💖 Vittnesbörd</h1>
-    <p class="intro">
-      Varje ord av tacksamhet blir ett ljus i mörkret.  
-      Här delar vi berättelser om tro, hopp och kärlek.
-    </p>
+  <div class="testimony-box">
+    <textarea id="testimonyText" placeholder="Skriv ditt vittnesbörd här..."></textarea>
+    <button onclick="addTestimony()">Dela vittnesbörd 💖</button>
+  </div>
 
-    <input id="name" type="text" placeholder="Ditt namn (valfritt)">
-    <textarea id="testimony" placeholder="Skriv ditt vittnesbörd här..."></textarea>
-    <button onclick="sendTestimony()">Dela ditt vittnesbörd ✝️</button>
-    <p id="thankyou">✨ Tack, ditt vittnesbörd har delats. ✝️</p>
+  <div class="testimony-list" id="testimonyList"></div>
 
-    <div id="testimonyList">
-      <h2>Dina vittnesbörd:</h2>
-      <ul id="testimonyItems" style="list-style:none;padding-left:0;"></ul>
-    </div>
-
-    <span class="bible">
-      “Let the redeemed of the Lord tell their story.” – Psalm 107:2 ✝️
-    </span>
-  </main>
-
-  <footer>
-    <nav>
-      <a href="../index.html">Hem</a>
-      <a href="index.html">Hälsans Kyrka</a>
-      <a href="../ai/index.html">AI</a>
-      <a href="../bauta/index.html">Bauta</a>
-      <a href="../charity/index.html">Charity</a>
-      <a href="../support/index.html">Support</a>
-      <a href="../apps/index.html">App & Projekt</a>
-      <a href="../donate.html">Stödj 🙏🏼</a>
-    </nav>
-    <p>© 2025 Mushroom Maniacs — Vision Framtid by 
-      <strong>Magnus T. Gustav Sandberg 🍀</strong>
-    </p>
-  </footer>
-
+  <!-- Global footer -->
+  <div id="footer-placeholder"></div>
   <script>
-    function sendTestimony() {
-      const text = document.getElementById('testimony').value.trim();
-      const name = document.getElementById('name').value.trim();
-      const msg = document.getElementById('thankyou');
-      const list = document.getElementById('testimonyList');
-      const items = document.getElementById('testimonyItems');
-
-      if (text !== '') {
-        msg.style.display = 'block';
-        list.style.display = 'block';
-
-        const li = document.createElement('li');
-        li.innerHTML = `💬 “${text}”` + (name ? `<br><small>— ${name}</small>` : '');
-        items.prepend(li);
-
-        document.getElementById('testimony').value = '';
-        document.getElementById('name').value = '';
-
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-      }
-    }
+    fetch("../includes/footer.html")
+      .then(r => r.text())
+      .then(f => (document.getElementById("footer-placeholder").innerHTML = f));
   </script>
 
+  <script>
+    function addTestimony() {
+      const text = document.getElementById("testimonyText").value.trim();
+      if (!text) return alert("Skriv ett vittnesbörd först 💖");
+      const list = document.getElementById("testimonyList");
+      const div = document.createElement("div");
+      div.className = "testimony-item";
+      div.innerHTML = `<strong>🌟 Ny berättelse:</strong><br>${text}`;
+      list.prepend(div);
+      document.getElementById("testimonyText").value = "";
+    }
+  </script>
 </body>
 </html>
