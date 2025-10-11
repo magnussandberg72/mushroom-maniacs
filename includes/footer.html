@@ -1,123 +1,84 @@
-<footer>
-  <!-- 🔹 Navigationslänkar -->
-  <nav id="footer-nav" class="footer-nav"></nav>
+<footer class="site-footer">
+  <nav class="footer-nav">
+    <a href="index.html">Hem</a>
+    <a href="health/index.html">Kyrkan ✝️</a>
+    <a href="ai/index.html">AI 🤖</a>
+    <a href="bauta/index.html">Bauta 🌍</a>
+    <a href="charity/index.html">Charity 💞</a>
+    <a href="support/index.html">Support 🤝</a>
+    <a href="apps/index.html">Appar & Sajter 📱</a>
+    <a href="donate.html">Stödj 🙏🏼</a>
+  </nav>
 
-  <!-- 🔹 Signatur -->
-  <p class="footer-credit">
-    © 2025 <strong>Mushroom Maniacs</strong> — Vision Framtid by
+  <p class="footer-copy">
+    © 2025 <strong>Mushroom Maniacs</strong> — Vision Framtid by 
     <strong>Magnus T. Gustav Sandberg 🍀</strong>
   </p>
 
-  <!-- 🔹 Språkväxlare -->
-  <div class="language-switch">
-    🌐 Language:
-    <a href="#" onclick="switchLanguage('sv')">🇸🇪 Svenska</a> |
-    <a href="#" onclick="switchLanguage('en')">🇺🇸 English</a>
-  </div>
+  <p class="footer-lang">
+    🌐 Language: 
+    <a href="#" class="lang sv" onclick="setLang('sv')">🇸🇪 Svenska</a> | 
+    <a href="#" class="lang en" onclick="setLang('en')">🇺🇸 English</a>
+  </p>
 </footer>
 
-<script>
-  // 🧭 Kontrollera om vi är i en undermapp (t.ex. /health/index.html)
-  const isSubdir = window.location.pathname.split("/").length > 2;
-  const base = isSubdir ? "../" : "";
-
-  // 🔹 Footer-länkar
-  const links = [
-    { href: base + "index.html", text: "🏠 Hem" },
-    { href: base + "health/index.html", text: "✝️ Kyrkan" },
-    { href: base + "ai/index.html", text: "🤖 AI" },
-    { href: base + "bauta/index.html", text: "🌍 Bauta" },
-    { href: base + "charity/index.html", text: "💖 Charity" },
-    { href: base + "support/index.html", text: "🤝 Support" },
-    { href: base + "apps/index.html", text: "📱 Appar & Sajter" },
-    { href: base + "donate.html", text: "🙏🏼 Stödj" }
-  ];
-
-  // 🔹 Markera aktiv sida
-  const currentPath = window.location.pathname.replace(/^.*\//, "");
-  document.getElementById("footer-nav").innerHTML = links
-    .map(l => {
-      const isActive = currentPath === l.href.split("/").pop();
-      return `<a href="${l.href}" class="${isActive ? "active" : ""}">${l.text}</a>`;
-    })
-    .join("");
-
-  // 🔹 Enkel språkväxlare (GitHub-kompatibel)
-  function switchLanguage(lang) {
-    const current = window.location.pathname;
-    let target = current;
-    if (lang === "en") target = current.replace(".html", "-en.html");
-    else target = current.replace("-en.html", ".html");
-    window.location.href = target;
-  }
-</script>
-
 <style>
-  footer {
-    background: rgba(0, 0, 0, 0.85);
+  .site-footer {
+    background-color: #0a0a0a;
+    padding: 30px 10px;
     color: #fff;
     text-align: center;
-    padding: 30px 10px;
-    margin-top: 60px;
     font-family: system-ui, sans-serif;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.4);
-    animation: fadeInFooter 1s ease;
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.6);
   }
 
-  @keyframes fadeInFooter {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* 🔹 Navigeringslänkar */
   .footer-nav {
+    margin-bottom: 18px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 16px;
   }
 
   .footer-nav a {
-    background-color: #222;
     color: #fff;
-    font-weight: 600;
-    padding: 10px 18px;
-    border-radius: 8px;
     text-decoration: none;
-    transition: background-color 0.2s, transform 0.15s;
+    font-weight: 600;
+    background: #333;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.25s ease-in-out;
   }
 
   .footer-nav a:hover {
-    background-color: #444;
+    background: #444;
     transform: scale(1.05);
   }
 
-  .footer-nav a.active {
-    border-bottom: 2px solid #aaa;
-    padding-bottom: 3px;
-  }
-
-  .footer-credit {
-    margin-top: 12px;
-    font-size: 0.9rem;
+  .footer-copy {
+    font-size: 0.95rem;
+    margin: 14px 0 6px;
     color: #ccc;
   }
 
-  .language-switch {
-    margin-top: 14px;
+  .footer-lang {
     font-size: 0.9rem;
     color: #bbb;
   }
 
-  .language-switch a {
+  .footer-lang a {
     color: #fff;
-    text-decoration: none;
     font-weight: 600;
+    text-decoration: none;
   }
 
-  .language-switch a:hover {
+  .footer-lang a:hover {
     text-decoration: underline;
-    color: #ddd;
   }
 </style>
+
+<script>
+function setLang(lang) {
+  alert(lang === 'sv' ? 'Språk: Svenska 🇸🇪' : 'Language: English 🇺🇸');
+}
+</script>
