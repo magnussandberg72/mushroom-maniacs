@@ -1,11 +1,14 @@
 <footer>
+  <!-- 🔹 Navigationslänkar -->
   <nav id="footer-nav" class="footer-nav"></nav>
 
+  <!-- 🔹 Signatur -->
   <p class="footer-credit">
     © 2025 <strong>Mushroom Maniacs</strong> — Vision Framtid by
     <strong>Magnus T. Gustav Sandberg 🍀</strong>
   </p>
 
+  <!-- 🔹 Språkväxlare -->
   <div class="language-switch">
     🌐 Language:
     <a href="#" onclick="switchLanguage('sv')">🇸🇪 Svenska</a> |
@@ -14,10 +17,11 @@
 </footer>
 
 <script>
-  // 🧭 Identifiera om vi är i undermapp (ex: /health/index.html)
+  // 🧭 Kolla om vi är i en undermapp (t.ex. /health/index.html)
   const isSubdir = window.location.pathname.split("/").length > 2;
   const base = isSubdir ? "../" : "";
 
+  // 🔹 Footer-länkar
   const links = [
     { href: base + "index.html", text: "🏠 Hem" },
     { href: base + "health/index.html", text: "✝️ Kyrkan" },
@@ -29,6 +33,7 @@
     { href: base + "donate.html", text: "🙏🏼 Stödj" }
   ];
 
+  // 🔹 Markera aktiv sida
   const currentPath = window.location.pathname.replace(/^.*\//, "");
   document.getElementById("footer-nav").innerHTML = links
     .map(l => {
@@ -37,7 +42,7 @@
     })
     .join("");
 
-  // 🌐 Språkväxlare som fungerar även på GitHub Pages
+  // 🔹 Språkväxlare (helt statisk, GitHub-kompatibel)
   function switchLanguage(lang) {
     const current = window.location.pathname;
     let target = current;
@@ -46,3 +51,74 @@
     window.location.href = target;
   }
 </script>
+
+<style>
+  footer {
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    text-align: center;
+    padding: 30px 10px;
+    margin-top: 60px;
+    font-family: system-ui, sans-serif;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.4);
+    animation: fadeInFooter 1s ease;
+  }
+
+  @keyframes fadeInFooter {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 🔹 Länkarna högst upp */
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .footer-nav a {
+    background-color: #222;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.15s;
+  }
+
+  .footer-nav a:hover {
+    background-color: #444;
+    transform: scale(1.05);
+  }
+
+  .footer-nav a.active {
+    border-bottom: 2px solid #aaa;
+    padding-bottom: 3px;
+  }
+
+  /* 🔹 Text & språkväxlare */
+  .footer-credit {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+
+  .language-switch {
+    margin-top: 14px;
+    font-size: 0.9rem;
+    color: #bbb;
+  }
+
+  .language-switch a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .language-switch a:hover {
+    text-decoration: underline;
+    color: #ddd;
+  }
+</style>
