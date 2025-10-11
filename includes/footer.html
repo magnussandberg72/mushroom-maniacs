@@ -1,21 +1,11 @@
 <footer>
-  <nav class="footer-nav">
-    <a href="../index.html">🏠 Hem</a>
-    <a href="../health/index.html">✝️ Kyrkan</a>
-    <a href="../ai/index.html">🤖 AI</a>
-    <a href="../bauta/index.html">🌍 Bauta</a>
-    <a href="../charity/index.html">💖 Charity</a>
-    <a href="../support/index.html">🤝 Support</a>
-    <a href="../apps/index.html">📱 Appar & Sajter</a>
-    <a href="../donate.html">🙏🏼 Stödj</a>
-  </nav>
+  <nav id="footer-nav" class="footer-nav"></nav>
 
   <p class="footer-credit">
     © 2025 <strong>Mushroom Maniacs</strong> — Vision Framtid by
     <strong>Magnus T Gustav Sandberg 🍀</strong>
   </p>
 
-  <!-- 🌐 Språkväxlare -->
   <div class="language-switch">
     🌐 Language:
     <a href="#" onclick="switchLanguage('sv')">🇸🇪 Svenska</a> |
@@ -24,6 +14,29 @@
 </footer>
 
 <script>
+  const isSubdir = window.location.pathname.split("/").length > 2;
+  const base = isSubdir ? "../" : "";
+
+  const links = [
+    { href: base + "index.html", text: "🏠 Hem" },
+    { href: base + "health/index.html", text: "✝️ Kyrkan" },
+    { href: base + "ai/index.html", text: "🤖 AI" },
+    { href: base + "bauta/index.html", text: "🌍 Bauta" },
+    { href: base + "charity/index.html", text: "💖 Charity" },
+    { href: base + "support/index.html", text: "🤝 Support" },
+    { href: base + "apps/index.html", text: "📱 Appar & Sajter" },
+    { href: base + "donate.html", text: "🙏🏼 Stödj" },
+  ];
+
+  const currentPath = window.location.pathname.replace(/^.*\//, "");
+
+  document.getElementById("footer-nav").innerHTML = links
+    .map(l => {
+      const isActive = currentPath === l.href.split("/").pop();
+      return `<a href="${l.href}" class="${isActive ? "active" : ""}">${l.text}</a>`;
+    })
+    .join("");
+
   function switchLanguage(lang) {
     const current = window.location.pathname;
     const newUrl = current.replace(/-en\.html$/, '') + (lang === 'en' ? '-en.html' : '.html');
