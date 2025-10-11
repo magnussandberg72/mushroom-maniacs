@@ -115,91 +115,58 @@
       border: none;
       box-shadow: 0 0 20px rgba(255,255,255,0.3);
     }
-    
-<!-- Bible Verse Generator (under Spotify section) -->
-<section class="bible-verse">
-  <h3>📖 Daily Word from God</h3>
-  <p id="verse">Loading verse...</p>
-  <button onclick="showRandomVerse()">Ask Jesus for an answer 🙏🏼</button>
-  <p class="note">A new verse each time you visit – God speaks through His Word.</p>
-</section>
 
-<script>
-  async function showRandomVerse() {
-    try {
-      const res = await fetch("https://labs.bible.org/api/?passage=random&type=json");
-      const data = await res.json();
-      const verse = data[0];
-      const verseText = `${verse.bookname} ${verse.chapter}:${verse.verse} – ${verse.text}`;
-
-      const verseEl = document.getElementById("verse");
-      verseEl.style.opacity = 0;
-      setTimeout(() => {
-        verseEl.textContent = verseText;
-        verseEl.style.opacity = 1;
-      }, 300);
-    } catch (e) {
-      document.getElementById("verse").textContent =
-        "🙏🏼 Unable to load verse right now – keep your faith.";
+    /* --- Bible Verse Generator styles --- */
+    .bible-verse {
+      background: rgba(255,255,255,0.08);
+      border-radius: 14px;
+      margin: 40px auto 30px;
+      padding: 20px;
+      width: 90%;
+      max-width: 480px;
+      text-align: center;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
     }
-  }
 
-  // Show one verse automatically
-  showRandomVerse();
-</script>
+    .bible-verse h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #fff;
+    }
 
-<style>
-  .bible-verse {
-    background: rgba(255,255,255,0.08);
-    border-radius: 14px;
-    margin: 40px auto 30px;
-    padding: 20px;
-    width: 90%;
-    max-width: 480px;
-    text-align: center;
-    color: #fff;
-    font-family: system-ui, sans-serif;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
-  }
+    .bible-verse button {
+      margin-top: 12px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.25s, transform 0.15s;
+    }
 
-  .bible-verse h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
-    color: #fff;
-  }
+    .bible-verse button:hover {
+      background-color: #444;
+      transform: scale(1.05);
+    }
 
-  .bible-verse button {
-    margin-top: 12px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.25s, transform 0.15s;
-  }
+    #verse {
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      transition: opacity 0.4s ease;
+    }
 
-  .bible-verse button:hover {
-    background-color: #444;
-    transform: scale(1.05);
-  }
+    .bible-verse .note {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #ddd;
+      opacity: 0.8;
+    }
 
-  #verse {
-    font-style: italic;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    transition: opacity 0.4s ease;
-  }
-
-  .bible-verse .note {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: #ddd;
-    opacity: 0.8;
-  }
-</style>
-    
     .bible {
       font-style: italic;
       margin-top: 35px;
@@ -217,10 +184,6 @@
       box-shadow: 0 -2px 10px rgba(0,0,0,0.4);
     }
 
-    footer nav {
-      margin-bottom: 10px;
-    }
-
     footer nav a {
       margin: 0 10px;
       color: #ffd85c;
@@ -233,11 +196,11 @@
     }
   </style>
 </head>
+
 <body>
 
   <header>🍄 Mushroom Maniacs</header>
 
-  <!-- 🌸 Bibelknapp -->
   <a class="bible-btn" href="https://app.bible.com/FCPc/ilyCM8GCtC" target="_blank">
     Bibeln på nätet ♥️
   </a>
@@ -260,6 +223,14 @@
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"></iframe>
 
+    <!-- ✅ Bible Verse Generator -->
+    <section class="bible-verse">
+      <h3>📖 Daily Word from God</h3>
+      <p id="verse">Loading verse...</p>
+      <button onclick="showRandomVerse()">Ask Jesus for an answer 🙏🏼</button>
+      <p class="note">A new verse each time you visit – God speaks through His Word.</p>
+    </section>
+
     <span class="bible">
       “Han helar de förkrossade i hjärtat och förbinder deras sår.” – Psaltaren 147:3 ✝️
     </span>
@@ -280,6 +251,28 @@
       <strong>Magnus T. Gustav Sandberg 🍀</strong>
     </p>
   </footer>
+
+  <script>
+    async function showRandomVerse() {
+      try {
+        const res = await fetch("https://labs.bible.org/api/?passage=random&type=json");
+        const data = await res.json();
+        const verse = data[0];
+        const verseText = `${verse.bookname} ${verse.chapter}:${verse.verse} – ${verse.text}`;
+
+        const verseEl = document.getElementById("verse");
+        verseEl.style.opacity = 0;
+        setTimeout(() => {
+          verseEl.textContent = verseText;
+          verseEl.style.opacity = 1;
+        }, 300);
+      } catch (e) {
+        document.getElementById("verse").textContent =
+          "🙏🏼 Unable to load verse right now – keep your faith.";
+      }
+    }
+    showRandomVerse();
+  </script>
 
 </body>
 </html>
