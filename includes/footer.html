@@ -1,20 +1,37 @@
 <footer>
-  <nav>
-    <a href="index.html">Hem</a>
-    <a href="health/index.html">Hälsans Kyrka</a>
-    <a href="ai/index.html">AI</a>
-    <a href="bauta/index.html">Bauta</a>
-    <a href="charity/index.html">Charity</a>
-    <a href="support/index.html">Support</a>
-    <a href="projects/index.html">App & Projekt</a>
-    <a href="donate.html">Stödj 🙏🏼</a>
+  <nav class="footer-nav">
+    <a href="../index.html">🏠 Hem</a>
+    <a href="../health/index.html">✝️ Kyrkan</a>
+    <a href="../ai/index.html">🤖 AI</a>
+    <a href="../bauta/index.html">🌍 Bauta</a>
+    <a href="../charity/index.html">💖 Charity</a>
+    <a href="../support/index.html">🤝 Support</a>
+    <a href="../apps/index.html">📱 Appar & Sajter</a>
+    <a href="../donate.html">🙏🏼 Stödj</a>
   </nav>
 
-  <p>© 2025 Mushroom Maniacs — Vision Framtid</p>
-  <p><strong>Magnus T. Gustav Sandberg 🍀</strong></p>
-
-  <p class="bible">
-    “Come to Me, all you who are weary and burdened, and I will give you rest.”<br>
-    <span>– Matthew 11:28 ✝️</span>
+  <p class="footer-credit">
+    © 2025 Mushroom Maniacs — Vision Framtid by
+    <strong>Magnus T Gustav Sandberg 🍀</strong>
   </p>
+
+  <!-- 🌐 Språkväxlare -->
+  <div class="language-switch">
+    🌐 Language:
+    <a href="#" onclick="switchLanguage('sv')">🇸🇪 Svenska</a> |
+    <a href="#" onclick="switchLanguage('en')">🇺🇸 English</a>
+  </div>
 </footer>
+
+<script>
+  function switchLanguage(lang) {
+    const current = window.location.pathname;
+    const newUrl = current.replace(/-en\.html$/, '') + (lang === 'en' ? '-en.html' : '.html');
+    fetch(newUrl)
+      .then(res => {
+        if (res.ok) window.location.href = newUrl;
+        else alert("English version coming soon 🙏🏼");
+      })
+      .catch(() => alert("Language switch temporarily unavailable."));
+  }
+</script>
