@@ -64,4 +64,21 @@
       transform: scale(1.05);
     }
   </style>
+  <script>
+  // Gör alla footer-länkar relativa beroende på var man befinner sig
+  const links = document.querySelectorAll(".footer-nav a");
+  const isSubpage = window.location.pathname.includes("/kyrkan/") ||
+                    window.location.pathname.includes("/ai/") ||
+                    window.location.pathname.includes("/charity/") ||
+                    window.location.pathname.includes("/support/") ||
+                    window.location.pathname.includes("/bauta/") ||
+                    window.location.pathname.includes("/apps/");
+
+  links.forEach(link => {
+    const href = link.getAttribute("href");
+    if (isSubpage && !href.startsWith("http") && !href.startsWith("../")) {
+      link.setAttribute("href", "../" + href);
+    }
+  });
+  </script>
 </footer>
