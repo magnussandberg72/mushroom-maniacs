@@ -1,42 +1,54 @@
 footer {
-  background: #1a1a1a;
-  color: #e6e6e6;
+  background: rgba(0,0,0,0.8);
+  color: #ccc;
   text-align: center;
-  padding: 30px 15px;
-  font-family: "Inter", sans-serif;
+  padding: 30px 10px;
+  margin-top: 60px;
+  font-family: system-ui, sans-serif;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
 }
 
-footer nav {
+.footer-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.2rem;
-  margin-bottom: 18px;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 
-footer nav a {
+.footer-nav a {
+  background-color: #333;
+  color: #ffd85c;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 8px;
   text-decoration: none;
-  color: #e2d9c8; /* varm ljus sandton */
-  font-weight: 600;
-  background: #2a2a2a;
-  padding: 10px 18px;
-  border-radius: 10px;
-  transition: background 0.3s, color 0.3s;
+  transition: background-color 0.2s, color 0.2s;
 }
 
-footer nav a:hover {
-  background: #3a3a3a;
-  color: #ffd678;
+.footer-nav a:hover {
+  background-color: #444;
+  color: #fff;
 }
 
-footer p {
-  margin: 4px 0;
-  font-size: 14px;
-  opacity: 0.8;
+.footer-credit {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #aaa;
 }
 
-footer .bible {
-  font-style: italic;
-  color: #cfcfcf;
-  margin-top: 14px;
+.language-switch {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.language-switch a {
+  color: #ffd85c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.language-switch a:hover {
+  color: #fff;
 }
