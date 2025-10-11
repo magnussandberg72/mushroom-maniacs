@@ -1,84 +1,67 @@
-<footer class="site-footer">
-  <nav class="footer-nav">
-    <a href="index.html">Hem</a>
-    <a href="health/index.html">Kyrkan ✝️</a>
-    <a href="ai/index.html">AI 🤖</a>
-    <a href="bauta/index.html">Bauta 🌍</a>
-    <a href="charity/index.html">Charity 💞</a>
-    <a href="support/index.html">Support 🤝</a>
-    <a href="apps/index.html">Appar & Sajter 📱</a>
-    <a href="donate.html">Stödj 🙏🏼</a>
-  </nav>
+<footer>
+  <div class="nav-row">
+    <a href="../index.html">🏠 Hem</a>
+    <a href="../health/index.html">✝️ Kyrkan</a>
+    <a href="../ai/index.html">🤖 AI</a>
+    <a href="../bauta/index.html">🌍 Bauta</a>
+    <a href="../charity/index.html">💞 Charity</a>
+    <a href="../support/index.html">🤝 Support</a>
+    <a href="../apps/index.html">📱 Appar & Sajter</a>
+    <a href="../donate.html">🙏🏼 Stödj</a>
+  </div>
 
-  <p class="footer-copy">
+  <p style="margin-top:24px; font-size:0.9rem; color:#ccc;">
     © 2025 <strong>Mushroom Maniacs</strong> — Vision Framtid by 
-    <strong>Magnus T. Gustav Sandberg 🍀</strong>
+    <strong>Magnus T. Gustav Sandberg 🍀</strong><br>
+    Kalix, Sverige
   </p>
 
-  <p class="footer-lang">
-    🌐 Language: 
-    <a href="#" class="lang sv" onclick="setLang('sv')">🇸🇪 Svenska</a> | 
-    <a href="#" class="lang en" onclick="setLang('en')">🇺🇸 English</a>
-  </p>
+  <div style="margin-top:10px; font-size:0.9rem; color:#bbb;">
+    🌐 Language:
+    <a href="#" onclick="setLang('sv')" style="color:#fff; text-decoration:none; font-weight:bold;">🇸🇪 Svenska</a> |
+    <a href="#" onclick="setLang('en')" style="color:#fff; text-decoration:none; font-weight:bold;">🇺🇸 English</a>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      alert(lang === 'sv' ? 'Språk: Svenska 🇸🇪' : 'Language: English 🇺🇸');
+    }
+  </script>
+
+  <style>
+    footer {
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 35px 15px;
+      font-family: system-ui, sans-serif;
+      box-shadow: 0 -3px 10px rgba(0,0,0,0.6);
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .nav-row a {
+      display: inline-block;
+      background-color: #333;
+      color: #fff;
+      font-weight: bold;
+      padding: 14px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .nav-row a:hover {
+      background-color: #444;
+      transform: scale(1.05);
+    }
+  </style>
 </footer>
-
-<style>
-  .site-footer {
-    background-color: #0a0a0a;
-    padding: 30px 10px;
-    color: #fff;
-    text-align: center;
-    font-family: system-ui, sans-serif;
-    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.6);
-  }
-
-  .footer-nav {
-    margin-bottom: 18px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .footer-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    background: #333;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: all 0.25s ease-in-out;
-  }
-
-  .footer-nav a:hover {
-    background: #444;
-    transform: scale(1.05);
-  }
-
-  .footer-copy {
-    font-size: 0.95rem;
-    margin: 14px 0 6px;
-    color: #ccc;
-  }
-
-  .footer-lang {
-    font-size: 0.9rem;
-    color: #bbb;
-  }
-
-  .footer-lang a {
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-  }
-
-  .footer-lang a:hover {
-    text-decoration: underline;
-  }
-</style>
-
-<script>
-function setLang(lang) {
-  alert(lang === 'sv' ? 'Språk: Svenska 🇸🇪' : 'Language: English 🇺🇸');
-}
-</script>
