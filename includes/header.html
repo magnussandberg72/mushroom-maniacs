@@ -1,42 +1,69 @@
-<header style="
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(90deg, #2c3e50, #34495e);
-  color: #fff;
-  padding: 8px 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  flex-wrap: nowrap;
-  overflow: hidden;
-">
-  <!-- Logo + Text -->
-  <div style="
-    display: flex;
-    align-items: center;
-    flex-shrink: 1;
-    min-width: 0;
-  ">
-    <img src='public/M-M-logo.png' alt='Mushroom Maniacs logo'
-         style='height:38px; width:auto; margin-right:8px; border-radius:6px; flex-shrink:0;'/>
-    <span style='font-size:1.3rem; font-weight:bold; white-space:nowrap;'>Mushroom Maniacs</span>
+<header class="global-header">
+  <!-- Vänster: Logo -->
+  <div class="header-left">
+    <img src="../public/M-M-logo.png" alt="Mushroom Maniacs logo" class="header-logo" />
   </div>
 
-  <!-- Stödj-knapp -->
-  <a href="donate.html"
-     style="
-       background-color:#333;
-       color:#fff;
-       padding:8px 14px;
-       border-radius:8px;
-       font-weight:bold;
-       text-decoration:none;
-       font-size:0.95rem;
-       box-shadow:0 2px 4px rgba(0,0,0,0.4);
-       transition:background-color 0.3s;
-       flex-shrink:0;
-     "
-     onmouseover="this.style.backgroundColor='#444'"
-     onmouseout="this.style.backgroundColor='#333'">
-     Stödj 🙏🏼
-  </a>
+  <!-- Mitten: Titel -->
+  <div class="header-center">
+    Mushroom Maniacs
+  </div>
+
+  <!-- Höger: Stödj-knapp -->
+  <a href="../donate.html" class="header-donate">Stödj 🙏🏼</a>
 </header>
+
+<style>
+  .global-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #2c3e50, #34495e);
+    color: #fff;
+    padding: 8px 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    z-index: 100;
+  }
+
+  .header-left {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .header-logo {
+    height: 38px;
+    width: auto;
+    border-radius: 6px;
+    margin-right: 10px;
+  }
+
+  .header-center {
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 1.35rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+
+  .header-donate {
+    flex: 0 0 auto;
+    background-color: #333;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  .header-donate:hover {
+    background-color: #444;
+    transform: scale(1.05);
+  }
+</style>
