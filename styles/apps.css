@@ -1,0 +1,85 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(to bottom, #aee1ff, #003366);
+  color: #fff;
+  margin: 0;
+  text-align: center;
+  min-height: 100vh;
+}
+
+header {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+main {
+  padding: 30px 20px 80px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.7);
+}
+
+.intro {
+  font-size: 1.1rem;
+  color: #eaf7ff;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.15);
+}
+
+.card h2 {
+  margin: 0 0 10px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #f0f8ff;
+}
+
+.coming-soon {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.coming-soon span {
+  display: block;
+  font-style: italic;
+  margin-top: 10px;
+  color: #ffd;
+}
+
+footer {
+  background: rgba(0,0,0,0.7);
+  color: #ddd;
+  padding: 20px;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
