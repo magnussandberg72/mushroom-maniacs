@@ -17,7 +17,7 @@
 </footer>
 
 <script>
-  // 🧭 Kolla om vi är i en undermapp (t.ex. /health/index.html)
+  // 🧭 Kontrollera om vi är i en undermapp (t.ex. /health/index.html)
   const isSubdir = window.location.pathname.split("/").length > 2;
   const base = isSubdir ? "../" : "";
 
@@ -42,7 +42,7 @@
     })
     .join("");
 
-  // 🔹 Språkväxlare (helt statisk, GitHub-kompatibel)
+  // 🔹 Enkel språkväxlare (GitHub-kompatibel)
   function switchLanguage(lang) {
     const current = window.location.pathname;
     let target = current;
@@ -69,7 +69,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* 🔹 Länkarna högst upp */
+  /* 🔹 Navigeringslänkar */
   .footer-nav {
     display: flex;
     flex-wrap: wrap;
@@ -98,7 +98,6 @@
     padding-bottom: 3px;
   }
 
-  /* 🔹 Text & språkväxlare */
   .footer-credit {
     margin-top: 12px;
     font-size: 0.9rem;
