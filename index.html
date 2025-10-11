@@ -21,7 +21,6 @@
 
   <main>
     <section class="hero">
-      <!-- Fixad logoväg -->
       <img src="public/M-M-logo.png" alt="Mushroom Maniacs logo" class="hero-logo" />
       <h1>Welcome</h1>
       <p class="subtitle">
@@ -37,7 +36,7 @@
         Här förenas tro, teknologi och mänsklig värme – i ett digitalt rum där själen får vila.
       </p>
       <p>
-        Utforska våra sektioner: <strong>Hälsans Kyrka</strong> för andlig ro,  
+        Utforska våra sektioner: <strong>Kyrkan</strong> för andlig ro,  
         <strong>AI</strong> för vägledning och reflektion,  
         <strong>Charity</strong> för kärlek i handling,  
         och <strong>Support</strong> för dig som behöver stöd i livet.
@@ -48,7 +47,12 @@
   <!-- Global footer -->
   <div id="footer-placeholder"></div>
   <script>
-    fetch("includes/footer.html")
+    // Dynamisk sökväg för root vs subfolders
+    const footerPath =
+      window.location.pathname.split("/").length > 2
+        ? "../includes/footer.html"
+        : "includes/footer.html";
+    fetch(footerPath)
       .then(r => r.text())
       .then(f => (document.getElementById("footer-placeholder").innerHTML = f));
   </script>
