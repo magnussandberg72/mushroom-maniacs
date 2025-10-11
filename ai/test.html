@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Test – Mushroom Maniacs</title>
+  <link rel="icon" type="image/png" href="../public/M-M-logo.png" />
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/header.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(to bottom, #222, #111);
+      color: #fff;
+      margin: 0;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    main {
+      padding: 100px 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #ddd;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🌍 Global header -->
+  <div id="header-placeholder"></div>
+  <script>
+    const repoBase = "/mushroom-maniacs/";
+    const path = window.location.pathname;
+    const isSubpage =
+      path.includes(repoBase + "health/") ||
+      path.includes(repoBase + "ai/") ||
+      path.includes(repoBase + "charity/") ||
+      path.includes(repoBase + "bauta/") ||
+      path.includes(repoBase + "support/") ||
+      path.includes(repoBase + "apps/");
+
+    const headerPath = isSubpage ? "../includes/header.html" : "includes/header.html";
+    fetch(headerPath)
+      .then((r) => r.text())
+      .then((h) => (document.getElementById("header-placeholder").innerHTML = h))
+      .catch((err) => console.error("❌ Header load error:", err));
+  </script>
+
+  <main>
+    <h1>🤖 AI Testsida</h1>
+    <p>Detta är en testsida för att kontrollera att global header och footer fungerar korrekt på undersidor.</p>
+    <p>Om du ser logotypen, "Mushroom Maniacs"-texten och fotern med alla knappar nedan — då är allt perfekt!</p>
+  </main>
+
+  <!-- 🌍 Global footer -->
+  <div id="footer-placeholder"></div>
+  <script>
+    const footerPath = isSubpage ? "../includes/footer.html" : "includes/footer.html";
+    fetch(footerPath)
+      .then((r) => r.text())
+      .then((f) => (document.getElementById("footer-placeholder").innerHTML = f))
+      .catch((err) => console.error("❌ Footer load error:", err));
+  </script>
+</body>
+</html>
