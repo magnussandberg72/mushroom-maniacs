@@ -3,7 +3,7 @@
 
   <p class="footer-credit">
     © 2025 <strong>Mushroom Maniacs</strong> — Vision Framtid by
-    <strong>Magnus T Gustav Sandberg 🍀</strong>
+    <strong>Magnus T. Gustav Sandberg 🍀</strong>
   </p>
 
   <div class="language-switch">
@@ -14,6 +14,7 @@
 </footer>
 
 <script>
+  // 🧭 Identifiera om vi är i undermapp (ex: /health/index.html)
   const isSubdir = window.location.pathname.split("/").length > 2;
   const base = isSubdir ? "../" : "";
 
@@ -25,11 +26,10 @@
     { href: base + "charity/index.html", text: "💖 Charity" },
     { href: base + "support/index.html", text: "🤝 Support" },
     { href: base + "apps/index.html", text: "📱 Appar & Sajter" },
-    { href: base + "donate.html", text: "🙏🏼 Stödj" },
+    { href: base + "donate.html", text: "🙏🏼 Stödj" }
   ];
 
   const currentPath = window.location.pathname.replace(/^.*\//, "");
-
   document.getElementById("footer-nav").innerHTML = links
     .map(l => {
       const isActive = currentPath === l.href.split("/").pop();
@@ -37,14 +37,12 @@
     })
     .join("");
 
+  // 🌐 Språkväxlare som fungerar även på GitHub Pages
   function switchLanguage(lang) {
     const current = window.location.pathname;
-    const newUrl = current.replace(/-en\.html$/, '') + (lang === 'en' ? '-en.html' : '.html');
-    fetch(newUrl)
-      .then(res => {
-        if (res.ok) window.location.href = newUrl;
-        else alert("English version coming soon 🙏🏼");
-      })
-      .catch(() => alert("Language switch temporarily unavailable."));
+    let target = current;
+    if (lang === "en") target = current.replace(".html", "-en.html");
+    else target = current.replace("-en.html", ".html");
+    window.location.href = target;
   }
 </script>
