@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kyrkan ✝️ – Mushroom Maniacs</title>
-  <link rel="stylesheet" href="../styles/main.css" />
   <link rel="icon" type="image/png" href="../public/M-M-logo.png" />
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
   <style>
     body {
       margin: 0;
@@ -207,7 +208,10 @@
   <!-- 🌍 Global footer -->
   <div id="footer-placeholder"></div>
   <script>
-    fetch("../includes/footer.html")
+    const sub = /(health|ai|bauta|charity|support|apps)\//.test(window.location.pathname)
+      ? "../"
+      : "";
+    fetch(sub + "includes/footer.html")
       .then(r => r.text())
       .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
       .catch(() => console.warn("Footer kunde inte laddas."));
