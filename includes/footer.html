@@ -1,13 +1,13 @@
 <footer class="site-footer">
   <nav class="footer-nav">
-    <a href="/mushroom-maniacs/index.html">Hem</a>
-    <a href="/mushroom-maniacs/health/index.html">Kyrkan ✝️</a>
-    <a href="/mushroom-maniacs/ai/index.html">AI 🤖</a>
-    <a href="/mushroom-maniacs/bauta/index.html">Bauta 🌍</a>
-    <a href="/mushroom-maniacs/charity/index.html">Charity 💞</a>
-    <a href="/mushroom-maniacs/support/index.html">Support 🤝</a>
-    <a href="/mushroom-maniacs/apps/index.html">Appar & Sajter 📱</a>
-    <a href="/mushroom-maniacs/donate.html">Stödj 🙏🏼</a>
+    <a href="index.html">Hem</a>
+    <a href="health/index.html">Kyrkan ✝️</a>
+    <a href="ai/index.html">AI 🤖</a>
+    <a href="bauta/index.html">Bauta 🌍</a>
+    <a href="charity/index.html">Charity 💞</a>
+    <a href="support/index.html">Support 🤝</a>
+    <a href="apps/index.html">Appar & Sajter 📱</a>
+    <a href="donate.html">Stödj 🙏🏼</a>
   </nav>
 
   <p class="footer-copy">
@@ -15,3 +15,28 @@
     <strong>Magnus T. Gustav Sandberg 🍀</strong>
   </p>
 </footer>
+
+<script>
+/* 🧭 Justera länkar automatiskt beroende på var sidan ligger */
+(() => {
+  const path = window.location.pathname;
+  const links = document.querySelectorAll(".footer-nav a");
+  const base = "/mushroom-maniacs/";
+
+  links.forEach(link => {
+    let href = link.getAttribute("href");
+    if (path.includes(base + "health/") ||
+        path.includes(base + "ai/") ||
+        path.includes(base + "bauta/") ||
+        path.includes(base + "charity/") ||
+        path.includes(base + "support/") ||
+        path.includes(base + "apps/")) {
+      // vi är i en undermapp
+      if (!href.startsWith("../")) link.setAttribute("href", "../" + href);
+    } else {
+      // vi är i rotmappen
+      if (href.startsWith("../")) link.setAttribute("href", href.replace("../", ""));
+    }
+  });
+})();
+</script>
