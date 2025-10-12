@@ -17,25 +17,25 @@
 </footer>
 
 <script>
-/* 🧭 Justera länkar automatiskt beroende på var sidan ligger */
+/* 🌍 Gör alla länkar relativa beroende på om sidan ligger i undermapp */
 (() => {
-  const path = window.location.pathname;
+  const currentPath = window.location.pathname;
   const links = document.querySelectorAll(".footer-nav a");
-  const base = "/mushroom-maniacs/";
+
+  // upptäck om vi är i en undermapp som /health/ eller /ai/
+  const isSubpage = /(health|ai|bauta|charity|support|apps)\//.test(currentPath);
 
   links.forEach(link => {
     let href = link.getAttribute("href");
-    if (path.includes(base + "health/") ||
-        path.includes(base + "ai/") ||
-        path.includes(base + "bauta/") ||
-        path.includes(base + "charity/") ||
-        path.includes(base + "support/") ||
-        path.includes(base + "apps/")) {
-      // vi är i en undermapp
-      if (!href.startsWith("../")) link.setAttribute("href", "../" + href);
-    } else {
-      // vi är i rotmappen
-      if (href.startsWith("../")) link.setAttribute("href", href.replace("../", ""));
+
+    // om vi är i undermapp, prefixa med "../" (t.ex. ../index.html)
+    if (isSubpage && !href.startsWith("../")) {
+      link.setAttribute("href", "../" + href);
+    }
+
+    // om vi är på startsidan, ta bort "../"
+    if (!isSubpage && href.startsWith("../")) {
+      link.setAttribute("href", href.replace("../", ""));
     }
   });
 })();
