@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" href="../public/M-M-logo.png" />
   <link rel="stylesheet" href="../styles/main.css" />
   <link rel="stylesheet" href="../styles/footer.css" />
+
   <style>
     body {
       margin: 0;
@@ -208,6 +209,7 @@
   <!-- 🌍 Global footer -->
   <div id="footer-placeholder"></div>
   <script>
+    // laddar global footer med rätt sökväg
     const sub = /(health|ai|bauta|charity|support|apps)\//.test(window.location.pathname)
       ? "../"
       : "";
@@ -218,6 +220,7 @@
   </script>
 
   <script>
+    // bibelversgenerator
     async function showRandomVerse() {
       try {
         const res = await fetch("https://labs.bible.org/api/?passage=random&type=json");
