@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stötta sajten</title>
+  <title>Stötta Mushroom Maniacs 🙏🏼</title>
   <meta name="description" content="Stöd Mushroom Maniacs – själavård, psykisk hälsa och hopp i Kristus.">
+  <link rel="icon" type="image/png" href="public/M-M-logo.png" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/footer.css" />
+
   <style>
     body {
       font-family: system-ui, sans-serif;
@@ -44,11 +48,6 @@
       color: #ffd85c;
     }
 
-    .card p {
-      font-size: 1rem;
-      margin-bottom: 16px;
-    }
-
     .btn, button.btn {
       display: block;
       background-color: #333;
@@ -71,40 +70,8 @@
       background-color: #4a4a4a;
     }
 
-    .nav-row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 32px;
-    }
-
-    .nav-row a {
-      background-color: #222;
-      color: #fff;
-      font-weight: bold;
-      padding: 14px 22px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 1rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.4);
-      transition: background-color 0.25s;
-    }
-
-    .nav-row a:hover {
-      background-color: #3b3b3b;
-    }
-
     footer {
-      background: rgba(0,0,0,0.6);
-      color: #ccc;
-      font-size: 0.9rem;
-      padding: 20px;
-      margin-top: 50px;
-    }
-
-    footer strong {
-      color: #ffd85c;
+      margin-top: 60px;
     }
   </style>
 </head>
@@ -112,62 +79,57 @@
 
   <h1>Mushroom Maniacs 🇸🇪</h1>
   <p>
-    Every gift helps us building our mission for good mental health, compassion and spiritual care.  
-    Thank you for contributing.
+    Varje gåva hjälper oss bygga Sajten, med stöd för psykisk hälsa.  
+    Tack för att du bidrar till bygget. ❤️
   </p>
 
   <!-- 🧡 Fatimah support -->
   <div class="card">
-    <h2>🍚 Fatimah support</h2>
-    <p>Food, hope and safety for one woman and her mom in Ghana.  
-    Your help provides meals, stability and a future. mark the swish, with 'fatimah'</p>
-    <a href="swish://" class="btn">💚 Open Swish</a>
-    <button class="btn" onclick="copySwish('0728502584')">📋 Copy Swish Number</button>
+    <h2>🍚 Fatimah Support</h2>
+    <p>Mat, hopp och trygghet för Fatimah och hennes mamma i Ghana.  
+    Märk Swish med “fatimah”.</p>
+    <a href="swish://" class="btn">💚 Öppna Swish</a>
+    <button class="btn" onclick="copySwish('0728502584')">📋 Kopiera Swishnummer</button>
   </div>
 
   <!-- Admin & Development -->
   <div class="card">
-    <h2>🕊️ Admin & the work</h2>
-    <p>Supports site hosting, technical updates and building new support tools for those in need. 💻</p>
-    <a href="swish://" class="btn">💚 Open Swish</a>
-    <button class="btn" onclick="copySwish('0728502584')">📋 Copy Admin Swish Number</button>
+    <h2>Admin & Sajten</h2>
+    <p>Bidra till drift, utveckling och skapande av fler stödverktyg för utsatta människor. 💻</p>
+    <a href="swish://" class="btn">💚 Öppna Swish</a>
+    <button class="btn" onclick="copySwish('0728502584')">📋 Kopiera Admin Swishnummer</button>
   </div>
 
   <!-- Mushroom Maniacs Community -->
   <div class="card">
-    <h2>Mushroom Maniacs Community</h2>
-    <p>we win souls to Jesus here, and we have prayers, testimonies and online AI counselling.  
-    Every heart that heals begins here. 🌱 contribute, if you like the site^^.</p>
-    <a href="swish://" class="btn">💚 Open Swish</a>
-    <button class="btn" onclick="copySwish('0728502584')">📋 Copy Admin Swish Number</button>
+    <h2>🌱 Mushroom Maniacs Community</h2>
+    <p>Här vinner vi själar till Jesus, delar vittnesbörd och erbjuder AI-själavård.  
+    Varje hjärta som helas börjar här. 🙏🏼</p>
+    <a href="swish://" class="btn">💚 Öppna Swish</a>
+    <button class="btn" onclick="copySwish('0728502584')">📋 Kopiera Admin Swishnummer</button>
   </div>
 
-  <!-- 💼 Large-Scale BAUTA -->
+  <!-- 💼 BAUTA -->
   <div class="card">
-    <h2>💼 Large-Scale Projects (BAUTA)</h2>
-    <p>For institutional and governmental partners (SIDA, EU, NGOs).  
-    Full transparency, audit-ready. Contact us for official proposal packages and verified banking details.</p>
-    <a href="./bauta/index.html" class="btn">🌍 View BAUTA Projects</a>
+    <h2>💼 BAUTA-projekt</h2>
+    <p>För institutionella partners (SIDA, EU, NGO).  
+    Full transparens och redovisning. Kontakta oss för officiella förslag.</p>
+    <a href="bauta/index.html" class="btn">🌍 Visa BAUTA-projekt</a>
   </div>
 
-  <!-- 🌐 Navigation -->
-  <div class="nav-row">
-    <a href="./index.html">🏠 Home</a>
-    <a href="./health/index.html">✝️ Hälsans Kyrka</a>
-    <a href="./ai/index.html">🤖 AI</a>
-    <a href="./bauta/index.html">🌍 Bauta</a>
-    <a href="./charity/index.html">💞 Charity</a>
-    <a href="./support/index.html">🤝 Support</a>
-  </div>
-
-  <footer>
-    © 2025 Mushroom Maniacs — Vision Framtid by <strong>Magnus T. Gustav Sandberg</strong>
-  </footer>
+  <!-- 🌍 Global footer -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("includes/footer.html")
+      .then(r => r.text())
+      .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
+      .catch(() => console.warn("Footer kunde inte laddas."));
+  </script>
 
   <script>
     function copySwish(number) {
       navigator.clipboard.writeText(number);
-      alert("📱 Swish number copied!");
+      alert("📱 Swishnummer kopierat!");
     }
   </script>
 
