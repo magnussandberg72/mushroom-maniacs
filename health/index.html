@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kyrkan ✝️ – Mushroom Maniacs</title>
   <link rel="icon" type="image/png" href="../public/M-M-logo.png" />
-  <link rel="stylesheet" href="../styles/main.css" />
-  <link rel="stylesheet" href="../styles/footer.css" />
-
   <style>
     body {
       margin: 0;
@@ -166,6 +163,40 @@
       color: #d8eaff;
       text-shadow: 0 0 8px rgba(255,255,255,0.7);
     }
+
+    footer {
+      background-color: #000;
+      padding: 25px 10px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 -3px 10px rgba(0,0,0,0.5);
+    }
+
+    footer nav div {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    footer nav a {
+      background: #333;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    footer nav a:hover {
+      background: #555;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
   </style>
 </head>
 
@@ -206,21 +237,25 @@
     </span>
   </main>
 
-  <!-- 🌍 Global footer -->
-  <div id="footer-placeholder"></div>
-  <script>
-    // laddar global footer med rätt sökväg
-    const sub = /(health|ai|bauta|charity|support|apps)\//.test(window.location.pathname)
-      ? "../"
-      : "";
-    fetch(sub + "includes/footer.html")
-      .then(r => r.text())
-      .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
-      .catch(() => console.warn("Footer kunde inte laddas."));
-  </script>
+  <footer>
+    <nav>
+      <div>
+        <a href="../index.html">Hem</a>
+        <a href="../health/index.html" style="background:linear-gradient(90deg,#a56eff,#8233ff);">Kyrkan ✝️</a>
+        <a href="../ai/index.html">AI 🤖</a>
+        <a href="../bauta/index.html">Bauta 🌍</a>
+        <a href="../charity/index.html">Charity 💞</a>
+        <a href="../support/index.html">Support 🤝</a>
+        <a href="../apps/index.html">Appar & Sajter 📱</a>
+        <a href="../donate.html">Stödj 🙏🏼</a>
+      </div>
+    </nav>
+    <p>© 2025 <strong>Mushroom Maniacs</strong> — Vision Framtid by<br>
+      <strong>Magnus T. Gustav Sandberg 🍀</strong>
+    </p>
+  </footer>
 
   <script>
-    // bibelversgenerator
     async function showRandomVerse() {
       try {
         const res = await fetch("https://labs.bible.org/api/?passage=random&type=json");
