@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kyrkan ✝️ – Mushroom Maniacs</title>
   <link rel="icon" type="image/png" href="../public/M-M-logo.png" />
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/header.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+
   <style>
     body {
       margin: 0;
@@ -22,16 +26,8 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    header {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 15px 0;
-      font-size: 26px;
-      font-weight: bold;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-
     h1 {
-      font-size: 40px;
+      font-size: 42px;
       margin-top: 20px;
       text-shadow: 0 0 10px rgba(255,255,255,0.8);
     }
@@ -163,51 +159,24 @@
       color: #d8eaff;
       text-shadow: 0 0 8px rgba(255,255,255,0.7);
     }
-
-    footer {
-      background-color: #000;
-      padding: 25px 10px;
-      text-align: center;
-      color: #fff;
-      box-shadow: 0 -3px 10px rgba(0,0,0,0.5);
-    }
-
-    footer nav div {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    footer nav a {
-      background: #333;
-      color: #fff;
-      padding: 6px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-
-    footer nav a:hover {
-      background: #555;
-    }
-
-    footer p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: #ccc;
-    }
   </style>
 </head>
 
 <body>
-  <header>🍄 Mushroom Maniacs</header>
-
-  <a class="bible-btn" href="https://app.bible.com/FCPc/ilyCM8GCtC" target="_blank">
-    Bibeln på nätet ♥️
-  </a>
+  <!-- 🌍 Global header -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("../includes/header.html")
+      .then(r => r.text())
+      .then(h => (document.getElementById("header-placeholder").innerHTML = h))
+      .catch(() => console.warn("Header kunde inte laddas."));
+  </script>
 
   <main>
+    <a class="bible-btn" href="https://app.bible.com/FCPc/ilyCM8GCtC" target="_blank">
+      Bibeln på nätet ❤️
+    </a>
+
     <div class="cross-glow">✝️</div>
     <h1>Kyrkan</h1>
     <p class="subtitle">Där hjärtat finner ro, och själen finner ljus.</p>
@@ -217,7 +186,7 @@
 
     <div class="section-buttons">
       <a href="prayer.html">Bön 🙏🏼</a>
-      <a href="testimonies.html">Vittnesbörd ♥️</a>
+      <a href="testimonies.html">Vittnesbörd ❤️</a>
     </div>
 
     <iframe class="spotify"
@@ -237,23 +206,14 @@
     </span>
   </main>
 
-  <footer>
-    <nav>
-      <div>
-        <a href="../index.html">Hem</a>
-        <a href="../health/index.html" style="background:linear-gradient(90deg,#a56eff,#8233ff);">Kyrkan ✝️</a>
-        <a href="../ai/index.html">AI 🤖</a>
-        <a href="../bauta/index.html">Bauta 🌍</a>
-        <a href="../charity/index.html">Charity 💞</a>
-        <a href="../support/index.html">Support 🤝</a>
-        <a href="../apps/index.html">Appar & Sajter 📱</a>
-        <a href="../donate.html">Stödj 🙏🏼</a>
-      </div>
-    </nav>
-    <p>© 2025 <strong>Mushroom Maniacs</strong> — Vision Framtid by<br>
-      <strong>Magnus T. Gustav Sandberg 🍀</strong>
-    </p>
-  </footer>
+  <!-- 🌍 Global footer -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("../includes/footer.html")
+      .then(r => r.text())
+      .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
+      .catch(() => console.warn("Footer kunde inte laddas."));
+  </script>
 
   <script>
     async function showRandomVerse() {
