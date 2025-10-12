@@ -1,109 +1,17 @@
 <footer class="site-footer">
   <nav class="footer-nav">
-    <a href="index.html">🏠 Hem</a>
-    <a href="health/index.html">✝️ Kyrkan</a>
-    <a href="ai/index.html">🤖 AI</a>
-    <a href="bauta/index.html">🌍 Bauta</a>
-    <a href="charity/index.html">💞 Charity</a>
-    <a href="support/index.html">🤝 Support</a>
-    <a href="apps/index.html">📱 Appar & Sajter</a>
-    <a href="donate.html">🙏🏼 Stödj</a>
+    <a href="../index.html">Hem</a>
+    <a href="../health/index.html">Kyrkan ✝️</a>
+    <a href="../ai/index.html">AI 🤖</a>
+    <a href="../bauta/index.html">Bauta 🌍</a>
+    <a href="../charity/index.html">Charity 💞</a>
+    <a href="../support/index.html">Support 🤝</a>
+    <a href="../apps/index.html">Appar & Sajter 📱</a>
+    <a href="../donate.html">Stödj 🙏🏼</a>
   </nav>
 
   <p class="footer-copy">
-    © 2025 <strong>Mushroom Maniacs</strong> — Vision Framtid by  
-    <strong>Magnus T. Gustav Sandberg 🍀</strong><br>
-    Kalix, Sverige
-  </p>
-
-  <p class="footer-lang">
-    🌐 Language:  
-    <a href="#" onclick="setLang('sv')">🇸🇪 Svenska</a> | 
-    <a href="#" onclick="setLang('en')">🇺🇸 English</a>
+    © 2025 <strong>Mushroom Maniacs</strong> — Vision Framtid by 
+    <strong>Magnus T. Gustav Sandberg 🍀</strong>
   </p>
 </footer>
-
-<style>
-  .site-footer {
-    background-color: #0a0a0a;
-    padding: 35px 15px;
-    color: #fff;
-    text-align: center;
-    font-family: system-ui, sans-serif;
-    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.6);
-  }
-
-  .footer-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-
-  .footer-nav a {
-    background-color: #333;
-    color: #fff;
-    font-weight: bold;
-    padding: 12px 22px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-size: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    transition: background-color 0.2s, transform 0.15s;
-  }
-
-  .footer-nav a:hover {
-    background-color: #444;
-    transform: scale(1.05);
-  }
-
-  .footer-copy {
-    font-size: 0.95rem;
-    margin: 18px 0 10px;
-    color: #ccc;
-  }
-
-  .footer-lang {
-    font-size: 0.9rem;
-    color: #bbb;
-  }
-
-  .footer-lang a {
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-  }
-
-  .footer-lang a:hover {
-    text-decoration: underline;
-    color: #ddd;
-  }
-</style>
-
-<script>
-  // Språk-knappar
-  function setLang(lang) {
-    alert(lang === 'sv' ? 'Språk: Svenska 🇸🇪' : 'Language: English 🇺🇸');
-  }
-
-  // 🔁 Gör länkarna dynamiskt korrekta på alla undersidor
-  document.addEventListener("DOMContentLoaded", () => {
-    const links = document.querySelectorAll(".footer-nav a");
-    const isSubpage =
-      window.location.pathname.includes("/kyrkan/") ||
-      window.location.pathname.includes("/ai/") ||
-      window.location.pathname.includes("/charity/") ||
-      window.location.pathname.includes("/support/") ||
-      window.location.pathname.includes("/bauta/") ||
-      window.location.pathname.includes("/apps/") ||
-      window.location.pathname.includes("/health/");
-
-    links.forEach(link => {
-      const href = link.getAttribute("href");
-      if (isSubpage && !href.startsWith("http") && !href.startsWith("../")) {
-        link.setAttribute("href", "../" + href);
-      }
-    });
-  });
-</script>
