@@ -4,19 +4,19 @@
   justify-content: space-between;
   background: linear-gradient(90deg, #2c3e50, #34495e);
   color: #fff;
-  padding: 8px 14px;
+  padding: 8px 16px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.4);
 ">
   <!-- Vänster sektion -->
-  <div style="display:flex;align-items:center;">
+  <div style="display:flex;align-items:center;gap:14px;">
     <img src='public/M-M-logo.png' alt='Mushroom Maniacs logo'
-         style='height:38px;width:auto;margin-right:14px;border-radius:6px;'/>
-    <span style='font-size:1.35rem;font-weight:bold;position:relative;left:4px;'>
+         style='height:38px;width:auto;border-radius:6px;flex-shrink:0;'/>
+    <span style='font-size:1.35rem;font-weight:bold;flex-grow:1;text-align:center;'>
       Mushroom Maniacs
     </span>
   </div>
 
-  <!-- Höger sektion (Stödj-knapp) -->
+  <!-- Höger sektion -->
   <a href="donate.html"
      style="
        background-color:#333;
@@ -28,6 +28,7 @@
        font-size:0.95rem;
        box-shadow:0 2px 4px rgba(0,0,0,0.4);
        transition:background-color 0.3s;
+       flex-shrink:0;
      "
      onmouseover="this.style.backgroundColor='#444'"
      onmouseout="this.style.backgroundColor='#333'">
