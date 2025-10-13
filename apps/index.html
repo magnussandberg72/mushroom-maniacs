@@ -1,68 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apps & Projects – Mushroom Maniacs</title>
+  <title>Appar & Projekt – Mushroom Maniacs</title>
+  <link rel="icon" type="image/png" href="../public/M-M-logo.png" />
   <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/header.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
   <link rel="stylesheet" href="../styles/apps.css" />
 </head>
-<body>
-  <header>
-    🍄 <span class="title">Mushroom Maniacs – Apps & Projects</span>
-  </header>
+
+<body class="apps-page">
+  <!-- 🌍 Global header -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("../includes/header.html")
+      .then(r => r.text())
+      .then(h => (document.getElementById("header-placeholder").innerHTML = h))
+      .catch(() => console.warn("❌ Header kunde inte laddas."));
+  </script>
 
   <main>
-    <h1>🌍 Our Sites & Projects</h1>
+    <h1>📱 Appar, Sites & Projekts</h1>
     <p class="intro">
-      Explore all connected websites and project initiatives within Mushroom Maniacs & Vision Framtid.
+      Utforska alla våra sajter och initiativ inom Mushroom Maniacs & Vision Framtid.  
+      Här samlas våra projekt för tro, teknologi och mänsklig värme.
     </p>
 
     <div class="grid">
-      <!-- Ready Sites -->
+      <!-- Live sites -->
       <a class="card" href="https://magnussandberg72.github.io/fatimah-support/" target="_blank">
         <h2>🇬🇭 Fatimah Support Site</h2>
-        <p>Hope, food & faith for Ghana — built with love & purpose.</p>
+        <p>Hopp, mat och trygghet för Ghana – byggd med kärlek & tro.</p>
       </a>
 
       <a class="card" href="https://magnussandberg72.github.io/brodrerochsystrar/index.html" target="_blank">
         <h2>🤝 Bröder & Systrar</h2>
-        <p>Community of love, unity & shared Christian faith.</p>
+        <p>Gemenskap av kärlek, enhet och kristen tro.</p>
       </a>
 
       <a class="card" href="https://magnussandberg72.github.io/magnus/index.html" target="_blank">
         <h2>🇸🇪 The Magnus Site</h2>
-        <p>Personal portfolio — AI, vision, innovation & future design.</p>
+        <p>Personlig sida – AI, innovation och framtidens design.</p>
       </a>
 
       <a class="card" href="https://magnussandberg72.github.io/mushroom-maniacs/index.html" target="_blank">
         <h2>🍄 Mushroom Maniacs</h2>
-        <p>Main hub for mental health, faith & global support.</p>
+        <p>Huvudnavet för mental hälsa, tro och globalt stöd.</p>
       </a>
 
-      <!-- Projects -->
+      <!-- Kommande projekt -->
       <div class="card coming-soon">
         <h2>🌍 BAUTA Projects</h2>
-        <p>Massive African infrastructure — Free hospitals, wells & energy.</p>
+        <p>Gigantiska afrikanska infrastruktursatsningar — gratis sjukhus, gratis medecin, brunn i varje by, energi satsningar.</p>
         <span>Coming soon...</span>
       </div>
 
       <div class="card coming-soon">
-        <h2>💞 Charity Projects</h2>
-        <p>Microloans, empowerment & new hope for small entrepreneurs.</p>
+        <h2>Charity Projects</h2>
+        <p>Mikrolån, egenmakt och nytt hopp för entreprenörer.</p>
         <span>Coming soon...</span>
       </div>
 
       <div class="card coming-soon">
-        <h2>🕊️ Support Projects</h2>
-        <p>Local grassroots aid through Swish & personal help networks.</p>
+        <h2>Support Projects</h2>
+        <p>Gräsrotsstöd via Swish och personliga nätverk.</p>
         <span>Coming soon...</span>
       </div>
     </div>
   </main>
 
-  <footer>
-    <p>© 2025 Mushroom Maniacs — Vision Framtid by <strong>Magnus T. Gustav Sandberg</strong></p>
-  </footer>
+  <!-- 🌍 Global footer-sub -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("../includes/footer-sub.html")
+      .then(r => r.text())
+      .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
+      .catch(() => console.warn("❌ Footer kunde inte laddas från ../includes/footer-sub.html"));
+  </script>
 </body>
 </html>
