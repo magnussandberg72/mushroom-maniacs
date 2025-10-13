@@ -207,13 +207,13 @@
   </main>
 
   <!-- 🌍 Global footer -->
-  <div id="footer-placeholder"></div>
-  <script>
-    fetch("../includes/footer.html")
-      .then(r => r.text())
-      .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
-      .catch(() => console.warn("Footer kunde inte laddas."));
-  </script>
+<div id="footer-placeholder"></div>
+<script>
+  fetch("../includes/footer-sub.html")
+    .then(r => r.text())
+    .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
+    .catch(() => console.warn("❌ Footer kunde inte laddas från ../includes/footer-sub.html"));
+</script>
 
   <script>
     async function showRandomVerse() {
