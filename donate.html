@@ -7,6 +7,7 @@
   <meta name="description" content="Stöd Mushroom Maniacs – själavård, psykisk hälsa och hopp i Kristus.">
   <link rel="icon" type="image/png" href="public/M-M-logo.png" />
   <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/header.css" />
   <link rel="stylesheet" href="styles/footer.css" />
 
   <style>
@@ -77,45 +78,56 @@
 </head>
 <body>
 
-  <h1>Mushroom Maniacs 🇸🇪</h1>
-  <p>
-    Varje gåva hjälper oss bygga Sajten, med stöd för psykisk hälsa.  
-    Tack för att du bidrar till bygget. ❤️
-  </p>
+  <!-- 🌍 Global header -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("includes/header.html")
+      .then(r => r.text())
+      .then(h => (document.getElementById("header-placeholder").innerHTML = h))
+      .catch(() => console.warn("Header kunde inte laddas."));
+  </script>
 
-  <!-- 🧡 Fatimah support -->
-  <div class="card">
-    <h2>🍚 Fatimah Support</h2>
-    <p>Mat, hopp och trygghet för Fatimah och hennes mamma i Ghana.  
-    Märk Swish med “fatimah”.</p>
-    <a href="swish://" class="btn">💚 Öppna Swish</a>
-    <button class="btn" onclick="copySwish('0728502584')">📋 Kopiera Swishnummer</button>
-  </div>
+  <main>
+    <h1>Mushroom Maniacs 🇸🇪</h1>
+    <p>
+      Varje gåva hjälper oss bygga Sajten, med stöd för psykisk hälsa.  
+      Tack för att du bidrar till bygget. ❤️
+    </p>
 
-  <!-- Admin & Development -->
-  <div class="card">
-    <h2>Admin & Sajten</h2>
-    <p>Bidra till drift, utveckling och skapande av fler stödverktyg för utsatta människor. 💻</p>
-    <a href="swish://" class="btn">💚 Öppna Swish</a>
-    <button class="btn" onclick="copySwish('0728502584')">📋 Kopiera Admin Swishnummer</button>
-  </div>
+    <!-- 🧡 Fatimah support -->
+    <div class="card">
+      <h2>🍚 Fatimah Support</h2>
+      <p>Mat, hopp och trygghet för Fatimah och hennes mamma i Ghana.  
+      Märk Swish med “fatimah”.</p>
+      <a href="swish://" class="btn">💚 Öppna Swish</a>
+      <button class="btn" onclick="copySwish('0728502584')">📋 Kopiera Swishnummer</button>
+    </div>
 
-  <!-- Mushroom Maniacs Community -->
-  <div class="card">
-    <h2>🌱 Mushroom Maniacs Community</h2>
-    <p>Här vinner vi själar till Jesus, delar vittnesbörd och erbjuder AI-själavård.  
-    Varje hjärta som helas börjar här. 🙏🏼</p>
-    <a href="swish://" class="btn">💚 Öppna Swish</a>
-    <button class="btn" onclick="copySwish('0728502584')">📋 Kopiera Admin Swishnummer</button>
-  </div>
+    <!-- Admin & Development -->
+    <div class="card">
+      <h2>Admin & Sajten</h2>
+      <p>Bidra till drift, utveckling och skapande av fler stödverktyg för utsatta människor. 💻</p>
+      <a href="swish://" class="btn">💚 Öppna Swish</a>
+      <button class="btn" onclick="copySwish('0728502584')">📋 Kopiera Admin Swishnummer</button>
+    </div>
 
-  <!-- 💼 BAUTA -->
-  <div class="card">
-    <h2>💼 BAUTA-projekt</h2>
-    <p>För institutionella partners (SIDA, EU, NGO).  
-    Full transparens och redovisning. Kontakta oss för officiella förslag.</p>
-    <a href="bauta/index.html" class="btn">🌍 Visa BAUTA-projekt</a>
-  </div>
+    <!-- Mushroom Maniacs Community -->
+    <div class="card">
+      <h2>🌱 Mushroom Maniacs Community</h2>
+      <p>Här vinner vi själar till Jesus, delar vittnesbörd och erbjuder AI-själavård.  
+      Varje hjärta som helas börjar här. 🙏🏼</p>
+      <a href="swish://" class="btn">💚 Öppna Swish</a>
+      <button class="btn" onclick="copySwish('0728502584')">📋 Kopiera Admin Swishnummer</button>
+    </div>
+
+    <!-- 💼 BAUTA -->
+    <div class="card">
+      <h2>💼 BAUTA-projekt</h2>
+      <p>För institutionella partners (SIDA, EU, NGO).  
+      Full transparens och redovisning. Kontakta oss för officiella förslag.</p>
+      <a href="bauta/index.html" class="btn">🌍 Visa BAUTA-projekt</a>
+    </div>
+  </main>
 
   <!-- 🌍 Global footer -->
   <div id="footer-placeholder"></div>
