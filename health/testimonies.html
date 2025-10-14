@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vittnesbörd ♥️ – Kyrkan</title>
-  <link rel="stylesheet" href="../styles/main.css" />
+  <title>Vittnesbörd ❤️ – Kyrkan</title>
   <link rel="icon" type="image/png" href="../public/M-M-logo.png" />
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/header.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+
   <style>
     body {
       margin: 0;
@@ -14,12 +17,21 @@
       color: #fff;
       text-align: center;
       min-height: 100vh;
-      animation: fadeIn 1.5s ease-in;
+      animation: fadeInBody 1.5s ease-in;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    main {
+      padding: 40px 20px;
     }
 
     h1 {
-      font-size: 38px;
-      margin-top: 40px;
+      font-size: 40px;
+      margin-top: 30px;
       text-shadow: 0 0 10px rgba(255,255,255,0.7);
     }
 
@@ -52,6 +64,7 @@
       font-size: 1rem;
       background-color: #fff;
       color: #000;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
     }
 
     button {
@@ -84,45 +97,101 @@
       border-radius: 8px;
       margin-bottom: 10px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+      white-space: pre-wrap;
+      line-height: 1.5;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInTestimony 0.6s forwards;
+    }
+
+    @keyframes fadeInTestimony {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .testimony-item strong {
       color: #ffb347;
     }
+
+    footer {
+      margin-top: 60px;
+    }
   </style>
 </head>
 
 <body>
-  <header>🍄 Mushroom Maniacs</header>
-  <h1>Vittnesbörd ♥️</h1>
-  <p class="subtitle">Dela ditt vittnesbörd – din berättelse kan ge någon annan hopp.</p>
+  <!-- 🌍 Global header -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("../includes/header.html")
+      .then(r => r.text())
+      .then(h => (document.getElementById("header-placeholder").innerHTML = h))
+      .catch(() => console.warn("❌ Header kunde inte laddas."));
+  </script>
 
-  <div class="testimony-box">
-    <textarea id="testimonyText" placeholder="Skriv ditt vittnesbörd här..."></textarea>
-    <button onclick="addTestimony()">Dela vittnesbörd 💖</button>
-  </div>
+  <main>
+    <h1>Vittnesbörd ❤️</h1>
+    <p class="subtitle">Dela ditt vittnesbörd – din berättelse kan ge någon annan hopp.</p>
 
-  <div class="testimony-list" id="testimonyList"></div>
+    <div class="testimony-box">
+      <textarea id="testimonyText" placeholder="Skriv ditt vittnesbörd här..."></textarea>
+      <button onclick="addTestimony()">Dela vittnesbörd 🌟</button>
+    </div>
 
-  <!-- Global footer -->
+    <div class="testimony-list" id="testimonyList"></div>
+  </main>
+
+  <!-- 🌍 Global footer-sub -->
   <div id="footer-placeholder"></div>
   <script>
-    fetch("../includes/footer.html")
+    fetch("../includes/footer-sub.html")
       .then(r => r.text())
-      .then(f => (document.getElementById("footer-placeholder").innerHTML = f));
+      .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
+      .catch(() => console.warn("❌ Footer kunde inte laddas från ../includes/footer-sub.html"));
   </script>
 
   <script>
     function addTestimony() {
       const text = document.getElementById("testimonyText").value.trim();
-      if (!text) return alert("Skriv ett vittnesbörd först 💖");
+      if (!text) return alert("Skriv ett vittnesbörd först ❤️");
+
       const list = document.getElementById("testimonyList");
       const div = document.createElement("div");
       div.className = "testimony-item";
-      div.innerHTML = `<strong>🌟 Ny berättelse:</strong><br>${text}`;
+
+      const now = new Date().toLocaleString("sv-SE", {
+        dateStyle: "short",
+        timeStyle: "short"
+      });
+
+      div.innerHTML = `<strong>🌟 Vittnesbörd (${now}):</strong><br>${text}`;
       list.prepend(div);
+
       document.getElementById("testimonyText").value = "";
+
+      // spara temporärt
+      const saved = JSON.parse(sessionStorage.getItem("testimonies") || "[]");
+      saved.unshift({ text, time: now });
+      sessionStorage.setItem("testimonies", JSON.stringify(saved));
+
+      // trigga animation igen
+      requestAnimationFrame(() => {
+        div.style.opacity = "1";
+        div.style.transform = "translateY(0)";
+      });
     }
+
+    // Visa sparade vittnesbörd
+    window.addEventListener("DOMContentLoaded", () => {
+      const list = document.getElementById("testimonyList");
+      const saved = JSON.parse(sessionStorage.getItem("testimonies") || "[]");
+      saved.forEach(t => {
+        const div = document.createElement("div");
+        div.className = "testimony-item";
+        div.innerHTML = `<strong>🌟 Vittnesbörd (${t.time}):</strong><br>${t.text}`;
+        list.append(div);
+      });
+    });
   </script>
 </body>
 </html>
