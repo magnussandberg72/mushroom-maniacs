@@ -4,34 +4,150 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI Guidance – Words for Peace & Healing</title>
-  <link rel="icon" type="image/png" href="../images/mushroom-logo.png" />
+  <link rel="icon" type="image/png" href="../public/M-M-logo.png" />
   <link rel="stylesheet" href="../styles/main.css" />
   <link rel="stylesheet" href="../styles/header.css" />
   <link rel="stylesheet" href="../styles/footer.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(to bottom, #b5d9ff, #00214d);
+      color: #fff;
+      text-align: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      animation: fadeIn 1.2s ease-in;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    main { padding: 40px 16px; }
+
+    h1 {
+      font-size: 42px;
+      margin: 20px 0 10px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+
+    p.subtitle {
+      font-style: italic;
+      color: #eaf4ff;
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.95;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #0a3a72, #0e2750);
+      color: #fff;
+      font-weight: bold;
+      padding: 14px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      margin-top: 15px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .hero-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(255,255,255,0.3);
+    }
+
+    /* 🕊 Intro-kortet */
+    .intro {
+      background: rgba(255,255,255,0.92);
+      color: #132235;
+      border-radius: 16px;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      padding: 20px 22px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* 💬 Kort */
+    .cards {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      color: #fff;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px rgba(255,255,255,0.25);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #ffd85c;
+    }
+
+    .card p {
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    /* ✝️ Bibelcitat */
+    .faith {
+      background: rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 20px;
+      margin: 0 auto 40px;
+      max-width: 700px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .faith span {
+      display: block;
+      margin-top: 10px;
+      color: #ffd85c;
+    }
+
+    footer {
+      margin-top: 60px;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Global header -->
+  <!-- 🌍 Global header -->
   <div id="header-placeholder"></div>
   <script>
     fetch("../includes/header.html")
       .then(r => r.text())
-      .then(h => (document.getElementById("header-placeholder").innerHTML = h));
+      .then(h => (document.getElementById("header-placeholder").innerHTML = h))
+      .catch(() => console.warn("Header kunde inte laddas."));
   </script>
 
-  <main class="ai">
+  <main>
     <section class="hero">
       <h1>🕊 Guidance & Reflection</h1>
-      <p class="subtitle">
-        “Sometimes the soul only needs a gentle word to remember its light.”  
-      </p>
+      <p class="subtitle">“Sometimes the soul only needs a gentle word to remember its light.”</p>
       <a href="../donate.html" class="hero-btn">Stödj 🙏🏼</a>
     </section>
 
-    <section class="intro" style="max-width:800px;margin:auto;">
+    <section class="intro">
       <p>
-        This page is a quiet space — a small pause between thoughts.  
-        Each message is a reflection from John, meant to comfort and guide.  
+        This page is a quiet space — a small pause between thoughts.
+        Each message is a reflection from John, meant to comfort and guide.
         Take a breath, read slowly, and let the words rest in you.
       </p>
     </section>
@@ -40,8 +156,8 @@
       <div class="card">
         <h3>🌅 Morning Light</h3>
         <p>
-          Every sunrise is mercy renewed.  
-          Yesterday’s worries cannot cross today’s horizon.  
+          Every sunrise is mercy renewed.
+          Yesterday’s worries cannot cross today’s horizon.
           Breathe. Begin again.
         </p>
       </div>
@@ -49,8 +165,8 @@
       <div class="card">
         <h3>🌿 Stillness</h3>
         <p>
-          You do not need to be fixed to be loved.  
-          The silence you fear is often where peace begins.  
+          You do not need to be fixed to be loved.
+          The silence you fear is often where peace begins.
           Let quiet be your prayer.
         </p>
       </div>
@@ -58,7 +174,7 @@
       <div class="card">
         <h3>💧 Healing Tears</h3>
         <p>
-          Even tears are sacred — they water what must grow.  
+          Even tears are sacred — they water what must grow.
           Healing doesn’t rush; it unfolds gently, in its own time.
         </p>
       </div>
@@ -66,8 +182,8 @@
       <div class="card">
         <h3>🔥 Strength</h3>
         <p>
-          You have survived every night until now.  
-          The fire that hurt you can also warm you.  
+          You have survived every night until now.
+          The fire that hurt you can also warm you.
           You are not broken — you are being refined.
         </p>
       </div>
@@ -75,26 +191,27 @@
       <div class="card">
         <h3>✝️ Faith</h3>
         <p>
-          “The Lord is near to the brokenhearted.” – Psalm 34:18  
+          “The Lord is near to the brokenhearted.” – Psalm 34:18
           When you cannot see the way, trust that God still walks beside you.
         </p>
       </div>
     </section>
 
-    <section class="faith" style="max-width:700px;margin:auto;">
+    <section class="faith">
       <blockquote>
-        “Peace I leave with you; my peace I give to you.”  
+        “Peace I leave with you; my peace I give to you.”
         <span>– John 14:27 ✝️</span>
       </blockquote>
     </section>
   </main>
 
-  <!-- Global footer -->
+  <!-- 🌍 Global footer för sub-sidor -->
   <div id="footer-placeholder"></div>
   <script>
-    fetch("../includes/footer.html")
+    fetch("../includes/footer-sub.html")
       .then(r => r.text())
-      .then(f => (document.getElementById("footer-placeholder").innerHTML = f));
+      .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
+      .catch(() => console.warn("❌ Footer kunde inte laddas från ../includes/footer-sub.html"));
   </script>
 </body>
 </html>
