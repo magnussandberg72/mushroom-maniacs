@@ -17,10 +17,10 @@
       color: #fff;
       text-align: center;
       min-height: 100vh;
-      animation: fadeIn 1.5s ease-in;
+      animation: fadeInBody 1.5s ease-in;
     }
 
-    @keyframes fadeIn {
+    @keyframes fadeInBody {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
@@ -30,7 +30,7 @@
     }
 
     h1 {
-      font-size: 40px;
+      font-size: 42px;
       margin-top: 30px;
       text-shadow: 0 0 10px rgba(255,255,255,0.7);
     }
@@ -47,10 +47,12 @@
       border-radius: 14px;
       width: 90%;
       max-width: 480px;
-      margin: 0 auto;
       padding: 20px;
-      text-align: left;
       box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     textarea {
@@ -69,7 +71,7 @@
 
     button {
       margin-top: 15px;
-      background-color: #333;
+      background-color: #222;
       color: #fff;
       font-weight: bold;
       border: none;
@@ -80,14 +82,15 @@
     }
 
     button:hover {
-      background-color: #444;
+      background-color: #333;
     }
 
     .prayer-list {
       margin-top: 40px;
       width: 90%;
       max-width: 480px;
-      margin-inline: auto;
+      margin-left: auto;
+      margin-right: auto;
       text-align: left;
     }
 
@@ -99,6 +102,14 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.3);
       white-space: pre-wrap;
       line-height: 1.5;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInPrayer 0.6s forwards;
+    }
+
+    @keyframes fadeInPrayer {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .prayer-item strong {
@@ -123,7 +134,7 @@
 
   <main>
     <h1>Bön 🙏🏼</h1>
-    <p class="subtitle">Dela din bön – Herren hör alla som ber i tro</p>
+    <p class="subtitle">Dela din bön – Herren hör alla som ber i tro.</p>
 
     <div class="prayer-box">
       <textarea id="prayerText" placeholder="Skriv din bön här..."></textarea>
@@ -143,14 +154,14 @@
   </script>
 
   <script>
-    // Enkel bönelista (lokal)
     function addPrayer() {
       const text = document.getElementById("prayerText").value.trim();
       if (!text) return alert("Skriv en bön först 🙏🏼");
-      const list = document.getElementById("prayerList");
 
+      const list = document.getElementById("prayerList");
       const div = document.createElement("div");
       div.className = "prayer-item";
+
       const now = new Date().toLocaleString("sv-SE", {
         dateStyle: "short",
         timeStyle: "short"
@@ -160,13 +171,19 @@
       list.prepend(div);
       document.getElementById("prayerText").value = "";
 
-      // Spara lokalt i browsern (session)
+      // Spara i sessionStorage
       const saved = JSON.parse(sessionStorage.getItem("prayers") || "[]");
       saved.unshift({ text, time: now });
       sessionStorage.setItem("prayers", JSON.stringify(saved));
+
+      // Triggera fade-in animation
+      requestAnimationFrame(() => {
+        div.style.opacity = "1";
+        div.style.transform = "translateY(0)";
+      });
     }
 
-    // Visa tidigare böner (från session)
+    // Visa sparade böner vid laddning
     window.addEventListener("DOMContentLoaded", () => {
       const list = document.getElementById("prayerList");
       const saved = JSON.parse(sessionStorage.getItem("prayers") || "[]");
