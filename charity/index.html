@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charity 💞 – Mushroom Maniacs</title>
+  <meta name="description" content="Mikrolån, egenmakt och kärlek i handling. Hjälp människor bygga ett bättre liv genom Vision Framtid Charity.">
+  <link rel="icon" type="image/png" href="../public/M-M-logo.png" />
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/header.css" />
+  <link rel="stylesheet" href="../styles/footer.css" />
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(to bottom, #4c0070, #12002f);
+      color: #fff;
+      margin: 0;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-top: 30px;
+      text-shadow: 0 0 14px rgba(255,255,255,0.5);
+    }
+
+    p.subtitle {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #ffd6ff;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card h2 {
+      color: #ffd85c;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #f3eaff;
+      line-height: 1.6;
+    }
+
+    footer {
+      margin-top: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🌍 Global header -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("../includes/header.html")
+      .then(r => r.text())
+      .then(h => (document.getElementById("header-placeholder").innerHTML = h))
+      .catch(() => console.warn("❌ Header kunde inte laddas."));
+  </script>
+
+  <main>
+    <h1>💞 Charity – Kärlek i handling</h1>
+    <p class="subtitle">Love in Action – Free Microfinance for Africa</p>
+
+    <p>
+      Charity-projekten inom <strong>Vision Framtid</strong> hjälper människor resa sig ur fattigdom.  
+      Genom mikrolån, symaskiner, utbildning och lokala kooperativ bygger vi ett nytt Afrika –  
+      där varje människa får chans att skapa, försörja sig och leva i värdighet. ✨
+    </p>
+
+    <div class="projects">
+      <div class="card">
+        <h2>🧵 Symaskiner & textil</h2>
+        <p>Kvinnor får symaskiner, utbildning och material för att skapa kläder och försörja sina familjer.</p>
+      </div>
+
+      <div class="card">
+        <h2>🐐 Djurfonder</h2>
+        <p>Getter, höns och små boskap delas ut – varje familj får startkapital för mat och inkomst.</p>
+      </div>
+
+      <div class="card">
+        <h2>☀️ Solpaneler</h2>
+        <p>Gratis solenergi till byar och skolor – el till vattenpumpar, belysning och kylskåp.</p>
+      </div>
+
+      <div class="card">
+        <h2>🏦 Mikrolån</h2>
+        <p>Räntelösa lån till småföretagare. Varje återbetalt lån hjälper nästa person – en kedja av hopp.</p>
+      </div>
+
+      <div class="card">
+        <h2>📚 Utbildning & kunskap</h2>
+        <p>Kurser i ekonomi, teknik och hantverk – byggd på tro, självkänsla och gemenskap.</p>
+      </div>
+
+      <div class="card">
+        <h2>🌍 Lokala kooperativ</h2>
+        <p>Små samhällen organiseras för att dela resurser och växa tillsammans i fred och samarbete.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- 🌍 Global footer-sub -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("../includes/footer-sub.html")
+      .then(r => r.text())
+      .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
+      .catch(() => console.warn("❌ Footer kunde inte laddas från ../includes/footer-sub.html"));
+  </script>
+</body>
+</html>
