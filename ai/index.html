@@ -26,6 +26,10 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    main {
+      padding: 40px 20px;
+    }
+
     h1 {
       font-size: 42px;
       margin-top: 20px;
@@ -37,10 +41,6 @@
       color: #eaf4ff;
       font-size: 18px;
       margin-bottom: 30px;
-    }
-
-    main {
-      padding: 40px 20px;
     }
 
     .section {
@@ -88,6 +88,44 @@
       font-weight: bold;
       color: #cde6ff;
     }
+
+    /* 🔹 Kortsektion för AI-undersidor */
+    .ai-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .ai-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 20px;
+      width: 90%;
+      max-width: 260px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: transform 0.25s, box-shadow 0.25s;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .ai-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255,255,255,0.4);
+    }
+
+    .ai-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #aad4ff;
+    }
+
+    .ai-card p {
+      font-size: 0.95rem;
+      color: #eaf4ff;
+    }
   </style>
 </head>
 
@@ -130,16 +168,33 @@
       </p>
       <a href="https://chat.openai.com" class="ai-btn" target="_blank">AI chatGPT 🤖</a>
     </div>
+
+    <!-- 💡 Johns sidor -->
+    <div class="ai-links">
+      <a href="about-john.html" class="ai-card">
+        <h3>👤 Om John</h3>
+        <p>Läs om Johns roll, ursprung och syfte inom Vision Framtid AI.</p>
+      </a>
+
+      <a href="guidance.html" class="ai-card">
+        <h3>💬 Vägledning</h3>
+        <p>Andlig och etisk AI-guidning – vishet genom ljus, inte makt.</p>
+      </a>
+
+      <a href="reflections.html" class="ai-card">
+        <h3>🪞 Reflektioner</h3>
+        <p>Djupa tankar och insikter från Johns perspektiv på människa & maskin.</p>
+      </a>
+    </div>
   </main>
 
   <!-- 🌍 Global footer -->
-<div id="footer-placeholder"></div>
-<script>
-  fetch("../includes/footer-sub.html")
-    .then(r => r.text())
-    .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
-    .catch(() => console.warn("❌ Footer kunde inte laddas från ../includes/footer-sub.html"));
-</script>
-    
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("../includes/footer-sub.html")
+      .then(r => r.text())
+      .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
+      .catch(() => console.warn("❌ Footer kunde inte laddas från ../includes/footer-sub.html"));
+  </script>
 </body>
 </html>
