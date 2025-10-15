@@ -159,6 +159,30 @@
       color: #d8eaff;
       text-shadow: 0 0 8px rgba(255,255,255,0.7);
     }
+
+    /* 🔹 Video-stil */
+    .video-section {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+
+    .video-section h3 {
+      color: #ffd85c;
+      text-shadow: 0 0 8px rgba(255,255,255,0.4);
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .video-section iframe {
+      width: 90%;
+      max-width: 560px;
+      height: 315px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+      margin-bottom: 35px;
+    }
   </style>
 </head>
 
@@ -173,6 +197,18 @@
   </script>
 
   <main>
+    <!-- 🎥 Videor -->
+    <section class="video-section">
+      <h3>🎬 Predikan med pastor Daniel Steen – Livets Ord</h3>
+      <iframe src="https://www.youtube.com/embed/ByDV_1F-Waw?si=_2dKYOT_XBkQZxyb" allowfullscreen></iframe>
+
+      <h3>🙏🏼 Christian Brother Yun</h3>
+      <iframe src="https://www.youtube.com/embed/3JOtDZfaLG4?si=CeYW2jw5k51cTSPW" allowfullscreen></iframe>
+
+      <h3>🙏🏼 Christian Heidi Baker</h3>
+      <iframe src="https://www.youtube.com/embed/tSsE22c8aK4?si=dMXnQzW6MfNZL65p" allowfullscreen></iframe>
+    </section>
+
     <a class="bible-btn" href="https://app.bible.com/FCPc/ilyCM8GCtC" target="_blank">
       Bibeln på nätet ❤️
     </a>
@@ -207,13 +243,13 @@
   </main>
 
   <!-- 🌍 Global footer -->
-<div id="footer-placeholder"></div>
-<script>
-  fetch("../includes/footer-sub.html")
-    .then(r => r.text())
-    .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
-    .catch(() => console.warn("❌ Footer kunde inte laddas från ../includes/footer-sub.html"));
-</script>
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("../includes/footer-sub.html")
+      .then(r => r.text())
+      .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
+      .catch(() => console.warn("❌ Footer kunde inte laddas från ../includes/footer-sub.html"));
+  </script>
 
   <script>
     async function showRandomVerse() {
