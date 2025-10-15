@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="stylesheet" href="styles/header.css" />
   <link rel="stylesheet" href="styles/footer.css" />
+
   <style>
     .hashtags {
       text-align: center;
@@ -54,13 +55,37 @@
       margin-bottom: 15px;
     }
 
-    .video-section iframe {
+    /* Klickbart videokort */
+    .video-link {
+      display: inline-block;
+      position: relative;
+      text-decoration: none;
+      color: white;
+    }
+
+    .video-thumbnail {
       width: 90%;
       max-width: 560px;
-      height: 315px;
-      border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       box-shadow: 0 0 15px rgba(255,255,255,0.3);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .video-link:hover .video-thumbnail {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(255,255,255,0.5);
+    }
+
+    .video-overlay {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      background: rgba(0,0,0,0.5);
+      padding: 8px;
+      border-radius: 0 0 14px 14px;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -79,8 +104,13 @@
     <section class="video-section">
       <h2>🎥 Erica Kirk</h2>
       <p>She’s worthy, to carry the Legacy forth 🙏🏼<br>Let her lead the movement ♥️🙏🏼✝️</p>
-      <a href="https://youtu.be/PWPK72ZLlmA" target="_blank" rel="noopener noreferrer">
-        <iframe src="https://www.youtube.com/embed/PWPK72ZLlmA" allowfullscreen></iframe>
+
+      <a href="https://youtu.be/PWPK72ZLlmA" target="_blank" rel="noopener noreferrer" class="video-link">
+        <img 
+          src="https://img.youtube.com/vi/PWPK72ZLlmA/maxresdefault.jpg" 
+          alt="Erica Kirk video thumbnail" 
+          class="video-thumbnail" />
+        <div class="video-overlay">▶️ Se videon på YouTube</div>
       </a>
     </section>
 
