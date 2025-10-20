@@ -20,11 +20,16 @@
       margin: 0;
       color: var(--text);
       font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:
-        linear-gradient(to bottom, rgba(10, 15, 30, 0.85), rgba(3, 10, 25, 0.92)),
-        url("public/hell-in-ward.png") center/cover fixed no-repeat;
-      min-height: 100vh;
+      background-color: #020710;
       overflow-x: hidden;
+    }
+
+    /* 🔹 Helskärmsbakgrund */
+    .full-bg {
+      background: url("public/hell-in-ward.png") center center / contain no-repeat;
+      width: 100%;
+      height: 100vh;
+      background-color: #000;
     }
 
     main { padding: 28px 18px 64px; }
@@ -58,6 +63,7 @@
       border-radius:16px;
       box-shadow:0 12px 30px rgba(0,0,0,.45);
       backdrop-filter: blur(8px);
+      margin-bottom: 40px;
     }
 
     .player {
@@ -140,30 +146,21 @@
       .catch(()=>console.warn("Header kunde inte laddas."));
   </script>
 
+  <!-- 🔹 Helskärmsbild -->
+  <section class="full-bg"></section>
+
   <main>
     <div class="wrap">
       <section class="hero">
         <span class="badge">Vittnesbörd i musik</span>
         <h1>Kampen mot mörkret</h1>
-        <p class="subtitle">Mitt livs berättelse från psykiatrins Helvete — och vägen mot ljuset i Kristus, Frälsaren 🙏🏼</p>
-      </section>
-
-      <section class="player glass">
-        <h2>🎧 AKUTPSYK SSJ — spellista</h2>
-        <p>Grym, rak sanning. Det här är mina sånger, mina rop, min dagbok.</p>
-
-        <iframe
-          src="https://open.spotify.com/embed/playlist/032O3CuS0K7vtko8ODBQZF?utm_source=generator"
-          loading="lazy"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-        </iframe>
-
-        <br/>
-        <a class="btn" target="_blank" rel="noopener" href="https://open.spotify.com/playlist/032O3CuS0K7vtko8ODBQZF">Sångerna ✝️</a>
+        <p class="subtitle">
+          Mitt livs berättelse från psykiatrins Helvete — och vägen mot ljuset i Kristus, Frälsaren 🙏🏼
+        </p>
       </section>
 
       <section class="story glass">
-        <h3>Sammandrag</h3>
+        <h3>Mitt vittnesbörd</h3>
         <p class="lead">
           Jag har levt med psykiatrin i mer än 25 år — sedan slutet av 90-talet, när de först satte klorna i mig.
           Jag har mött tvång, överdoser och kränkningar. De gav mig
@@ -190,12 +187,28 @@
           När minnena slogs sönder, bar melodin min historia.  
           I mörkret fann jag en ton som vägrade ge upp.”
         </blockquote>
-
-        <div class="help">
-          <strong>Behöver du hjälp nu?</strong> Om du känner dig akut nedstämd eller har tankar på att skada dig
-          — ring 112 (akut) eller sök stöd i din närhet. Du är värdefull. Det finns hopp.
-        </div>
       </section>
+
+      <section class="player glass">
+        <h2>🎧 AKUTPSYK SSJ — spellista</h2>
+        <p>Grym, rak sanning. Det här är mina sånger, mina rop, min dagbok.</p>
+
+        <iframe
+          src="https://open.spotify.com/embed/playlist/032O3CuS0K7vtko8ODBQZF?utm_source=generator"
+          loading="lazy"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+
+        <br/>
+        <a class="btn" target="_blank" rel="noopener" href="https://open.spotify.com/playlist/032O3CuS0K7vtko8ODBQZF">
+          Sångerna ✝️
+        </a>
+      </section>
+
+      <div class="help">
+        <strong>Behöver du hjälp nu?</strong> Om du känner dig akut nedstämd eller har tankar på att skada dig
+        — ring 112 (akut) eller sök stöd i din närhet. Du är värdefull. Det finns hopp.
+      </div>
     </div>
   </main>
 
