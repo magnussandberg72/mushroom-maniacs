@@ -11,163 +11,122 @@
 
   <style>
     :root{
-      --ink:#0a1222;
-      --glass: rgba(255,255,255,0.07);
-      --glass-2: rgba(255,255,255,0.10);
-      --text:#eaf1ff;
-      --accent:#ffd85c;
-      --rose:#ff6b6b;
+      --glass: rgba(255,255,255,0.1);
+      --text: #f5f7ff;
+      --accent: #ffd85c;
     }
 
-    body{
-      margin:0;
-      color:var(--text);
+    body {
+      margin: 0;
+      color: var(--text);
       font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
       background:
-        linear-gradient(to bottom, rgba(3,12,28,0.9), rgba(3,12,28,0.9)),
+        linear-gradient(to bottom, rgba(10, 15, 30, 0.85), rgba(3, 10, 25, 0.92)),
         url("public/hell-in-ward.png") center/cover fixed no-repeat;
-      min-height:100vh;
-      overflow-x:hidden;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    main{ padding: 28px 18px 64px; }
+    main { padding: 28px 18px 64px; }
+    .wrap { max-width: 960px; margin: 0 auto; }
 
-    .wrap{ max-width: 960px; margin: 0 auto; }
-
-    .hero{ text-align:center; margin: 10px auto 28px; }
-    .badge{
+    .hero { text-align: center; margin: 10px auto 28px; }
+    .badge {
       display:inline-block;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: var(--glass-2);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(6px);
+      padding:6px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,0.15);
       font-weight:600;
       letter-spacing:.3px;
     }
-    h1{
-      margin: 14px 0 2px;
+    h1 {
+      margin:14px 0 2px;
       font-size: clamp(28px, 5.8vw, 48px);
-      line-height:1.08;
-      text-shadow: 0 6px 22px rgba(0,0,0,.45);
+      line-height:1.1;
+      text-shadow:0 6px 22px rgba(0,0,0,.45);
     }
-    .subtitle{
+    .subtitle {
       font-style: italic;
       opacity:.92;
       margin-top:8px;
-      color:#cfe1ff;
+      color:#dce7ff;
     }
 
-    .glass{
+    .glass {
       background: var(--glass);
-      border:1px solid rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.15);
       border-radius:16px;
-      box-shadow: 0 12px 30px rgba(0,0,0,.45);
+      box-shadow:0 12px 30px rgba(0,0,0,.45);
       backdrop-filter: blur(8px);
     }
 
-    /* Spotify-kort */
-    .player{
+    .player {
       margin:24px 0 14px;
       padding:18px;
       text-align:center;
     }
-    .player h2{
-      margin: 0 0 6px;
-      font-size: clamp(18px, 3.6vw, 22px);
+    .player h2 {
+      margin:0 0 6px;
+      font-size:clamp(18px,3.6vw,22px);
       color: var(--accent);
     }
-    .player p{ margin: 0 0 14px; color:#d9e6ff; }
-    .player iframe{
+    .player p { margin: 0 0 14px; color:#dbe8ff; }
+    .player iframe {
       width:100%;
-      max-width: 560px;
-      height: 480px;
+      max-width:560px;
+      height:480px;
       border:0;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,.45);
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,.45);
     }
-    .btn{
+    .btn {
       display:inline-block;
       margin-top:12px;
       padding:12px 20px;
-      border-radius: 999px;
-      background: #1DB954;
-      color:#fff; font-weight:700; text-decoration:none;
-      box-shadow: 0 6px 16px rgba(0,0,0,.45);
-      transition: transform .15s ease, box-shadow .2s ease;
+      border-radius:999px;
+      background:#1DB954;
+      color:#fff;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 6px 16px rgba(0,0,0,.45);
+      transition:transform .15s ease, box-shadow .2s ease;
     }
-    .btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 26px rgba(0,0,0,.5); }
+    .btn:hover { transform:translateY(-1px); box-shadow:0 10px 26px rgba(0,0,0,.5); }
 
-    /* Vittnesbörd */
-    .story{ padding: 22px 18px; }
-    .story h3{
-      margin: 6px 0 12px;
-      font-size: clamp(18px, 3.8vw, 22px);
+    .story { padding:22px 18px; }
+    .story h3 {
+      margin:6px 0 12px;
+      font-size:clamp(18px,3.8vw,22px);
       color:#cfe1ff;
     }
-    .lead{
-      font-size: 1.05rem;
-      line-height: 1.75;
-      color:#eaf1ff;
+    .lead {
+      font-size:1.05rem;
+      line-height:1.75;
+      color:#f5f7ff;
       opacity:.95;
     }
-    .cols{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:16px;
-      margin-top:16px;
-    }
-    @media (min-width:820px){
-      .story{ padding:26px 28px; }
-      .cols{ grid-template-columns: 1fr 1fr; gap:22px; }
-    }
-    .card{
-      padding:18px 16px;
-      border-radius:12px;
-      background: rgba(6,18,36,.55);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    .card h4{ margin: 4px 0 8px; color:#ffdca0; }
-    .list{ margin: 10px 0 0 18px; }
-    .list li{ margin: 6px 0; line-height:1.6; }
 
-    blockquote{
-      margin: 22px 0;
-      padding: 12px 16px 12px 18px;
-      border-left: 4px solid rgba(207,225,255,.35);
+    blockquote {
+      margin:22px 0;
+      padding:12px 16px 12px 18px;
+      border-left:4px solid rgba(207,225,255,.35);
       background: rgba(255,255,255,.04);
-      border-radius: 10px;
+      border-radius:10px;
       color:#d7e7ff;
       font-style: italic;
-      line-height: 1.8;
+      line-height:1.8;
     }
 
-    .help{
-      margin-top: 26px;
-      padding: 16px 18px;
+    .help {
+      margin-top:26px;
+      padding:16px 18px;
       border-radius:12px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
       color:#eaf1ff;
       font-size:.98rem;
     }
-    .help strong{ color:#ffe199; }
-
-    .navlinks{
-      text-align:center;
-      margin: 28px 0 8px;
-    }
-    .navlinks a{
-      display:inline-block;
-      margin: 6px 8px;
-      padding:10px 14px;
-      border-radius:999px;
-      text-decoration:none;
-      color:#fff;
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.10);
-    }
-    .navlinks a:hover{ background: rgba(255,255,255,.16); }
+    .help strong { color:#ffe199; }
   </style>
 </head>
 
@@ -189,7 +148,6 @@
         <p class="subtitle">Mitt livs berättelse från psykiatrins skugga — och vägen mot ljuset i Kristus.</p>
       </section>
 
-      <!-- Spotify -->
       <section class="player glass">
         <h2>🎧 AKUTPSYK SSJ — spellista</h2>
         <p>Grym, rå och ärlig sanning. Det här är mina låtar, mitt rop, min dagbok.</p>
@@ -204,7 +162,6 @@
         <a class="btn" target="_blank" rel="noopener" href="https://open.spotify.com/playlist/032O3CuS0K7vtko8ODBQZF">Öppna i Spotify</a>
       </section>
 
-      <!-- Vittnesbörd -->
       <section class="story glass">
         <h3>Sammandrag</h3>
         <p class="lead">
@@ -216,52 +173,17 @@
           I över tio år fick jag tvångsinjektioner var tredje vecka.
         </p>
 
-        <div class="cols">
-          <div class="card">
-            <h4>Suicidförsök – februari 2023</h4>
-            <ul class="list">
-              <li>Orsak: upprepade injektionskränkningar och Trillafon som gjorde mig icke-närvarande.</li>
-              <li>Hemma föll allt: disken stod, dammråttor i hörnen — jag kom mig inte för någonting.</li>
-              <li>I journalen står det “kroniskt suicid”. Vad betyder det när en människa kämpar för livet?</li>
-              <li>Jag var nära att dö. Blodtrycket var <strong>67/25</strong>. Min bror hann planera min begravning i huvudet på väg till sjukhuset.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h4>Vändningen – bönesvaret</h4>
-            <ul class="list">
-              <li>Jag fick byta från injektioner till <strong>Abilify i tablettform</strong>.</li>
-              <li>Det räddade mitt liv. Jag säger det rakt och enkelt: Jesus räddade mig.</li>
-              <li>Ändå bär jag spåren: ständig oro inför vården, minnen av handräckningar och våldsamma hämtningar.</li>
-              <li>Efter år av jakt är kroppen fortfarande på helspänn; stress och kortisol skyhöga. Jag försöker läka — långsamt.</li>
-            </ul>
-          </div>
-        </div>
-
         <blockquote>
           <strong>“PSYK HAR STAPLAT SINA KORS PÅ MIG!”</strong><br/>
           Jesus säger: <em>“Ta ditt kors och följ mig.”</em> Jag bär mina sår till honom.  
           Min sång blev mitt vittnesbörd. Därför finns de här låtarna.
         </blockquote>
 
-        <div class="card">
-          <h4>Titlar som bär min verklighet</h4>
-          <ul class="list">
-            <li><em>HORNET INJECTED (pzyk)</em></li>
-            <li><em>Agony And Paiiin!</em></li>
-            <li><em>Lpt/Öpt pzyk</em></li>
-            <li><em>lidande (pzyk)</em></li>
-            <li><em>mengele &amp; pzyk</em></li>
-            <li><em>Sorgsna timmar</em></li>
-            <li><em>dangerous shower</em></li>
-            <li><em>oppressed persecution</em></li>
-            <li><em>Yttrad YttrandeFrihets GrundLag!</em></li>
-          </ul>
-          <p style="margin-top:10px">
-            Det är hårt, naket och ibland svårt att lyssna på. Men det är sant.
-            Jag skrev/skapade allt hemma — för att överleva, för att minnas och för att vittna.
-          </p>
-        </div>
+        <p class="lead">
+          Suicidförsöket i februari 2023 var min botten.  
+          Men Gud vände allt. Jag fick Abilify-tabletter istället för injektioner – och det räddade mitt liv.  
+          Idag försöker jag läka, dag för dag, med tron som min styrka.
+        </p>
 
         <blockquote>
           “När de tystade min röst, talade musiken.  
@@ -274,12 +196,6 @@
           — ring 112 (akut) eller sök stöd i din närhet. Du är värdefull. Det finns hopp.
         </div>
       </section>
-
-      <div class="navlinks">
-        <a href="index.html">🏠 Hem</a>
-        <a href="health/index.html">✝️ Kyrkan</a>
-        <a href="support/index.html">🤝 Support</a>
-      </div>
     </div>
   </main>
 
