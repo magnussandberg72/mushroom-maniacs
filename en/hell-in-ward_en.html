@@ -24,26 +24,26 @@
       overflow-x: hidden;
     }
 
-    /* 🔹 Fullscreen background (optimized for mobile + desktop) */
+    /* 🔹 Fullscreen background identical to Swedish version */
     .full-bg {
       position: relative;
       background: url("../public/hell-in-ward.png") center center / contain no-repeat;
-      background-color: #000; /* fallback for dark edges */
       width: 100%;
       height: 100vh;
-      max-height: 900px;
+      background-color: #000;
+      background-attachment: fixed;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      filter: brightness(1.15); /* ⬅ brightens image slightly */
     }
 
-    /* 🔹 Subtle overlay for readability */
+    /* 🔹 Optional soft gradient overlay (keeps readability but not too dark) */
     .full-bg::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.6));
     }
 
     main {
@@ -160,9 +160,13 @@
     }
 
     @media (max-width: 600px) {
+      .full-bg {
+        background-size: cover;
+        background-position: center center;
+        filter: brightness(1.25);
+      }
       .story, .player, .help { padding: 16px; }
       .player iframe { height: 360px; }
-      .full-bg { background-size: cover; } /* smooth on mobile */
     }
   </style>
 </head>
@@ -240,7 +244,7 @@
     </div>
   </main>
 
-  <!-- 🌍 Global footer (fixed with fallback) -->
+  <!-- 🌍 Global footer -->
   <div id="footer-placeholder"></div>
   <script>
     fetch("/includes/footer-sub.html")
