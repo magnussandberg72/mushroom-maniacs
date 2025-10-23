@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Testimony and the Music</title>
+  <title>HELL-IN-WARD — The Battle Against Darkness</title>
   <link rel="icon" type="image/png" href="../public/M-M-logo.png" />
   <link rel="stylesheet" href="../styles/main.css" />
   <link rel="stylesheet" href="../styles/header.css" />
@@ -23,28 +23,28 @@
       background-color: #000;
       overflow-x: hidden;
     }
-    
-    /* 🔹 Fullscreen background (optimized for mobile + desktop) */
-.full-bg {
-  position: relative;
-  background: url("../public/hell-in-ward.png") center center / contain no-repeat;
-  background-color: #000;        /* fallback for dark edges */
-  width: 100%;
-  height: 100vh;
-  max-height: 900px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
 
-/* 🔹 Subtle dark overlay for readability */
-.full-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.85));
-}
+    /* 🔹 Fullscreen background (optimized for mobile + desktop) */
+    .full-bg {
+      position: relative;
+      background: url("../public/hell-in-ward.png") center center / contain no-repeat;
+      background-color: #000; /* fallback for dark edges */
+      width: 100%;
+      height: 100vh;
+      max-height: 900px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* 🔹 Subtle overlay for readability */
+    .full-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
+    }
 
     main {
       padding: 24px 18px 64px;
@@ -160,16 +160,15 @@
     }
 
     @media (max-width: 600px) {
-      .story, .player, .help {
-        padding: 16px;
-      }
+      .story, .player, .help { padding: 16px; }
       .player iframe { height: 360px; }
+      .full-bg { background-size: cover; } /* smooth on mobile */
     }
   </style>
 </head>
 
 <body>
-  <!-- Header -->
+  <!-- 🌍 Header -->
   <div id="header-placeholder"></div>
   <script>
     fetch("../includes/header.html")
@@ -178,7 +177,7 @@
       .catch(()=>console.warn("Header load failed"));
   </script>
 
-  <!-- Fullscreen background -->
+  <!-- 🔹 Fullscreen background -->
   <section class="full-bg"></section>
 
   <main>
@@ -186,7 +185,9 @@
       <section class="hero">
         <span class="badge">Testimony in Music</span>
         <h1>The Battle Against Darkness</h1>
-        <p class="subtitle">My life’s story from the psychiatric hell — and the road toward the light in Christ, my Savior 🙏🏼</p>
+        <p class="subtitle">
+          My life’s story from the psychiatric hell — and the road toward the light in Christ, my Savior 🙏🏼
+        </p>
       </section>
 
       <section class="story glass">
@@ -201,19 +202,19 @@
 
         <blockquote>
           <strong>“PSYCH HAS STACKED ITS CROSSES UPON ME!”</strong><br/>
-          Jesus said: <em>“Take up your cross and follow Me.”</em> I carry my wounds to Him.<br>
-          My songs became my testimony. That’s why these tracks exist.
+          Jesus said: <em>“Take up your cross and follow Me.”</em>  
+          I carry my wounds to Him. My songs became my testimony. That’s why these tracks exist.
         </blockquote>
 
         <p class="lead">
-          The suicide attempt in February 2023 was my lowest point. But God turned it all around.
-          I was switched to Abilify tablets instead of injections – and it saved my life.
+          The suicide attempt in February 2023 was my lowest point.  
+          But God turned it all around. I was switched to Abilify tablets instead of injections — and it saved my life.  
           Today I try to heal, day by day, with faith as my strength.
         </p>
 
         <blockquote>
-          “When they silenced my voice, the music spoke.<br>
-          When memories were shattered, the melody carried my story.<br>
+          “When they silenced my voice, the music spoke.  
+          When memories were shattered, the melody carried my story.  
           In the darkness, I found a tone that refused to give up.”
         </blockquote>
       </section>
@@ -221,28 +222,31 @@
       <section class="player glass">
         <h2>🎧 AKUTPSYK SSJ — Playlist</h2>
         <p>Raw and honest truth. These are my songs, my cries, my diary.</p>
-        <iframe src="https://open.spotify.com/embed/playlist/032O3CuS0K7vtko8ODBQZF?utm_source=generator"
+        <iframe 
+          src="https://open.spotify.com/embed/playlist/032O3CuS0K7vtko8ODBQZF?utm_source=generator"
           loading="lazy"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
         </iframe><br/>
-        <a class="btn" href="https://open.spotify.com/playlist/032O3CuS0K7vtko8ODBQZF" target="_blank">Playlist on Spotify 🔥</a>
+        <a class="btn" href="https://open.spotify.com/playlist/032O3CuS0K7vtko8ODBQZF" target="_blank">
+          Playlist on Spotify 🔥
+        </a>
       </section>
 
       <div class="help">
         <strong>Need help right now?</strong><br>
-        If you’re feeling depressed or have thoughts of self-harm — call emergency services (112 in Sweden)
+        If you’re feeling depressed or have thoughts of self-harm — call emergency services (112 in Sweden)  
         or reach out for help in your area. You are precious. There is hope.
       </div>
     </div>
   </main>
 
-  <!-- Footer -->
+  <!-- 🌍 Global footer (fixed with fallback) -->
   <div id="footer-placeholder"></div>
   <script>
-    fetch("../includes/footer.html")
-      .then(r=>r.text())
-      .then(f=>document.getElementById("footer-placeholder").innerHTML=f)
-      .catch(()=>console.warn("Footer load failed"));
+    fetch("/includes/footer-sub.html")
+      .then(r => r.ok ? r.text() : fetch("../includes/footer-sub.html").then(r2 => r2.text()))
+      .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
+      .catch(() => console.warn("Footer load failed"));
   </script>
 </body>
 </html>
