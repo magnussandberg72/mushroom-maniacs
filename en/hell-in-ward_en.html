@@ -23,21 +23,28 @@
       background-color: #000;
       overflow-x: hidden;
     }
+    
+    /* 🔹 Fullscreen background (optimized for mobile + desktop) */
+.full-bg {
+  position: relative;
+  background: url("../public/hell-in-ward.png") center center / contain no-repeat;
+  background-color: #000;        /* fallback for dark edges */
+  width: 100%;
+  height: 100vh;
+  max-height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
-    /* 🔹 Fullscreen background with overlay */
-    .full-bg {
-      position: relative;
-      background: url("../public/hell-in-ward.png") center center / cover no-repeat;
-      height: 100vh;
-      width: 100%;
-    }
-
-    .full-bg::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.65);
-    }
+/* 🔹 Subtle dark overlay for readability */
+.full-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.85));
+}
 
     main {
       padding: 24px 18px 64px;
