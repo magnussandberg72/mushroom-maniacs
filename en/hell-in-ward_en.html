@@ -3,119 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HELL-IN-WARD — The Battle Against Darkness</title>
+  <title>My Testimony and the Music</title>
   <link rel="icon" type="image/png" href="../public/M-M-logo.png" />
   <link rel="stylesheet" href="../styles/main.css" />
   <link rel="stylesheet" href="../styles/header.css" />
   <link rel="stylesheet" href="../styles/footer.css" />
 
   <style>
-    :root {
-      --glass: rgba(255,255,255,0.08);
-      --text: #f9fbff;
+    :root{
+      --glass: rgba(255,255,255,0.1);
+      --text: #f5f7ff;
       --accent: #ffd85c;
     }
 
     body {
       margin: 0;
       color: var(--text);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background-color: #000;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background-color: #020710;
       overflow-x: hidden;
     }
 
-    /* 🔹 Fullscreen background identical to Swedish version */
+    /* 🔹 Fullscreen background */
     .full-bg {
-      position: relative;
       background: url("../public/hell-in-ward.png") center center / contain no-repeat;
       width: 100%;
       height: 100vh;
       background-color: #000;
-      background-attachment: fixed;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      filter: brightness(1.15); /* ⬅ brightens image slightly */
     }
 
-    /* 🔹 Optional soft gradient overlay (keeps readability but not too dark) */
-    .full-bg::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.6));
-    }
+    main { padding: 28px 18px 64px; }
+    .wrap { max-width: 960px; margin: 0 auto; }
 
-    main {
-      padding: 24px 18px 64px;
-    }
-
-    .wrap {
-      max-width: 960px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero {
-      text-align: center;
-      margin: 20px auto 36px;
-    }
-
+    .hero { text-align: center; margin: 10px auto 28px; }
     .badge {
       display:inline-block;
       padding:6px 12px;
       border-radius:999px;
       background: rgba(255,255,255,0.15);
       font-weight:600;
+      letter-spacing:.3px;
     }
-
     h1 {
       margin:14px 0 2px;
-      font-size: clamp(26px, 6vw, 46px);
-      line-height:1.15;
-      text-shadow: 0 6px 20px rgba(0,0,0,0.7);
+      font-size: clamp(28px, 5.8vw, 48px);
+      line-height:1.1;
+      text-shadow:0 6px 22px rgba(0,0,0,.45);
     }
-
     .subtitle {
       font-style: italic;
+      opacity:.92;
       margin-top:8px;
-      color:#e2ecff;
+      color:#dce7ff;
     }
 
     .glass {
       background: var(--glass);
-      border:1px solid rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.15);
       border-radius:16px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.55);
-      backdrop-filter: blur(6px);
+      box-shadow:0 12px 30px rgba(0,0,0,.45);
+      backdrop-filter: blur(8px);
       margin-bottom: 40px;
-    }
-
-    .story {
-      padding: 20px 16px;
-    }
-
-    .story h3 {
-      margin:6px 0 12px;
-      font-size: 1.25rem;
-      color:#cfe1ff;
-    }
-
-    .lead {
-      font-size:1.05rem;
-      line-height:1.75;
-      color:#f5f7ff;
-    }
-
-    blockquote {
-      margin:22px 0;
-      padding:12px 16px;
-      border-left:4px solid rgba(207,225,255,.4);
-      background: rgba(255,255,255,.05);
-      border-radius:10px;
-      color:#e6eeff;
-      font-style: italic;
     }
 
     .player {
@@ -123,21 +71,20 @@
       padding:18px;
       text-align:center;
     }
-
     .player h2 {
+      margin:0 0 6px;
+      font-size:clamp(18px,3.6vw,22px);
       color: var(--accent);
-      margin-bottom: 6px;
     }
-
+    .player p { margin: 0 0 14px; color:#dbe8ff; }
     .player iframe {
       width:100%;
       max-width:560px;
-      height:420px;
+      height:480px;
       border:0;
       border-radius:12px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.6);
+      box-shadow:0 8px 20px rgba(0,0,0,.45);
     }
-
     .btn {
       display:inline-block;
       margin-top:12px;
@@ -147,6 +94,33 @@
       color:#fff;
       font-weight:700;
       text-decoration:none;
+      box-shadow:0 6px 16px rgba(0,0,0,.45);
+      transition:transform .15s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform:translateY(-1px); box-shadow:0 10px 26px rgba(0,0,0,.5); }
+
+    .story { padding:22px 18px; }
+    .story h3 {
+      margin:6px 0 12px;
+      font-size:clamp(18px,3.8vw,22px);
+      color:#cfe1ff;
+    }
+    .lead {
+      font-size:1.05rem;
+      line-height:1.75;
+      color:#f5f7ff;
+      opacity:.95;
+    }
+
+    blockquote {
+      margin:22px 0;
+      padding:12px 16px 12px 18px;
+      border-left:4px solid rgba(207,225,255,.35);
+      background: rgba(255,255,255,.04);
+      border-radius:10px;
+      color:#d7e7ff;
+      font-style: italic;
+      line-height:1.8;
     }
 
     .help {
@@ -154,31 +128,22 @@
       padding:16px 18px;
       border-radius:12px;
       background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.12);
       color:#eaf1ff;
       font-size:.98rem;
     }
-
-    @media (max-width: 600px) {
-      .full-bg {
-        background-size: cover;
-        background-position: center center;
-        filter: brightness(1.25);
-      }
-      .story, .player, .help { padding: 16px; }
-      .player iframe { height: 360px; }
-    }
+    .help strong { color:#ffe199; }
   </style>
 </head>
 
 <body>
-  <!-- 🌍 Header -->
+  <!-- 🌍 Global header -->
   <div id="header-placeholder"></div>
   <script>
     fetch("../includes/header.html")
       .then(r => r.text())
       .then(h => (document.getElementById("header-placeholder").innerHTML = h))
-      .catch(()=>console.warn("Header load failed"));
+      .catch(()=>console.warn("Header could not load."));
   </script>
 
   <!-- 🔹 Fullscreen background -->
@@ -197,22 +162,23 @@
       <section class="story glass">
         <h3>My Testimony</h3>
         <p class="lead">
-          I have lived under psychiatry for more than 25 years — since the late 1990s, when they first got their claws into me.
-          I’ve faced coercion, overdoses, and violations. They gave me <em>Type 2 diabetes</em> through Zyprexa.
-          They destroyed my short-term memory with Trillafon — the maximum dose is 2.0, but I was forced to take 4.0.
-          Psychopharmaceutical overdoses under compulsory care in 2017, 2018, and 2019 — after that, my memory collapsed.
-          For more than ten years, I was forced to take injections every three weeks.
+          I have lived within psychiatry for more than 25 years — since the late 1990s when they first got their claws into me.
+          I’ve faced coercion, overdoses, and violations. They gave me
+          <em>Type 2 diabetes</em> through Zyprexa. They destroyed my short-term memory with Trillafon —
+          the maximum dose is 2.0, but I was forced to take 4.0. Psychopharmaceutical overdoses under compulsory care
+          in 2017, 2018 and 2019 — after that, my memory collapsed.
+          For more than ten years I was forced to take injections every three weeks.
         </p>
 
         <blockquote>
           <strong>“PSYCH HAS STACKED ITS CROSSES UPON ME!”</strong><br/>
-          Jesus said: <em>“Take up your cross and follow Me.”</em>  
-          I carry my wounds to Him. My songs became my testimony. That’s why these tracks exist.
+          Jesus said: <em>“Take up your cross and follow Me.”</em> I carry my wounds to Him.  
+          My song became my testimony. That’s why these tracks exist.
         </blockquote>
 
         <p class="lead">
-          The suicide attempt in February 2023 was my lowest point.  
-          But God turned it all around. I was switched to Abilify tablets instead of injections — and it saved my life.  
+          The suicide attempt in February 2023 was my bottom.  
+          But God turned everything around. I was given Abilify tablets instead of injections — and it saved my life.  
           Today I try to heal, day by day, with faith as my strength.
         </p>
 
@@ -226,20 +192,23 @@
       <section class="player glass">
         <h2>🎧 AKUTPSYK SSJ — Playlist</h2>
         <p>Raw and honest truth. These are my songs, my cries, my diary.</p>
-        <iframe 
+
+        <iframe
           src="https://open.spotify.com/embed/playlist/032O3CuS0K7vtko8ODBQZF?utm_source=generator"
           loading="lazy"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-        </iframe><br/>
-        <a class="btn" href="https://open.spotify.com/playlist/032O3CuS0K7vtko8ODBQZF" target="_blank">
+        </iframe>
+
+        <br/>
+        <a class="btn" target="_blank" rel="noopener" href="https://open.spotify.com/playlist/032O3CuS0K7vtko8ODBQZF">
           Playlist on Spotify 🔥
         </a>
       </section>
 
       <div class="help">
-        <strong>Need help right now?</strong><br>
-        If you’re feeling depressed or have thoughts of self-harm — call emergency services (112 in Sweden)  
-        or reach out for help in your area. You are precious. There is hope.
+        <strong>Need help right now?</strong>  
+        If you feel deeply depressed or have thoughts of harming yourself — call 112 (emergency in Sweden)  
+        or seek help in your area. You are valuable. There is hope.
       </div>
     </div>
   </main>
@@ -247,10 +216,10 @@
   <!-- 🌍 Global footer -->
   <div id="footer-placeholder"></div>
   <script>
-    fetch("/includes/footer-sub.html")
-      .then(r => r.ok ? r.text() : fetch("../includes/footer-sub.html").then(r2 => r2.text()))
-      .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
-      .catch(() => console.warn("Footer load failed"));
+    fetch("../includes/footer-sub.html")
+      .then(r=>r.text())
+      .then(f=>document.getElementById("footer-placeholder").innerHTML=f)
+      .catch(()=>console.warn("Footer could not load."));
   </script>
 </body>
 </html>
