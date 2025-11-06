@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bön 🙏🏼 – Kyrkan</title>
-  <link rel="icon" type="image/png" href="../public/M-M-logo.png" />
-  <link rel="stylesheet" href="../styles/main.css" />
-  <link rel="stylesheet" href="../styles/header.css" />
-  <link rel="stylesheet" href="../styles/footer.css" />
+  <link rel="icon" type="image/png" href="../../public/M-M-logo.png" />
+  <link rel="stylesheet" href="../../styles/main.css" />
+  <link rel="stylesheet" href="../../styles/header.css" />
+  <link rel="stylesheet" href="../../styles/footer.css" />
 
   <style>
     body {
@@ -25,16 +25,12 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    main {
-      padding: 40px 20px;
-    }
-
+    main { padding: 40px 20px; }
     h1 {
       font-size: 42px;
       margin-top: 30px;
       text-shadow: 0 0 10px rgba(255,255,255,0.7);
     }
-
     p.subtitle {
       font-style: italic;
       color: #eaf4ff;
@@ -81,9 +77,7 @@
       transition: background-color 0.25s;
     }
 
-    button:hover {
-      background-color: #333;
-    }
+    button:hover { background-color: #333; }
 
     .prayer-list {
       margin-top: 40px;
@@ -112,21 +106,15 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .prayer-item strong {
-      color: #ffd85c;
-    }
-
-    footer {
-      margin-top: 60px;
-    }
+    .prayer-item strong { color: #ffd85c; }
   </style>
 </head>
 
 <body>
-  <!-- 🌍 Global header -->
+  <!-- 🌍 Header -->
   <div id="header-placeholder"></div>
   <script>
-    fetch("../includes/header.html")
+    fetch("../../includes/header.html")
       .then(r => r.text())
       .then(h => (document.getElementById("header-placeholder").innerHTML = h))
       .catch(() => console.warn("❌ Header kunde inte laddas."));
@@ -144,46 +132,33 @@
     <div class="prayer-list" id="prayerList"></div>
   </main>
 
-  <!-- 🌍 Global footer-sub -->
+  <!-- 🌍 Footer-sub -->
   <div id="footer-placeholder"></div>
   <script>
-    fetch("../includes/footer-sub.html")
+    fetch("../../includes/footer-sub.html")
       .then(r => r.text())
       .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
-      .catch(() => console.warn("❌ Footer kunde inte laddas från ../includes/footer-sub.html"));
+      .catch(() => console.warn("❌ Footer kunde inte laddas."));
   </script>
 
   <script>
     function addPrayer() {
       const text = document.getElementById("prayerText").value.trim();
       if (!text) return alert("Skriv en bön först 🙏🏼");
-
       const list = document.getElementById("prayerList");
       const div = document.createElement("div");
       div.className = "prayer-item";
 
-      const now = new Date().toLocaleString("sv-SE", {
-        dateStyle: "short",
-        timeStyle: "short"
-      });
-
+      const now = new Date().toLocaleString("sv-SE", { dateStyle: "short", timeStyle: "short" });
       div.innerHTML = `<strong>🕊️ Bön (${now}):</strong><br>${text}`;
       list.prepend(div);
       document.getElementById("prayerText").value = "";
 
-      // Spara i sessionStorage
       const saved = JSON.parse(sessionStorage.getItem("prayers") || "[]");
       saved.unshift({ text, time: now });
       sessionStorage.setItem("prayers", JSON.stringify(saved));
-
-      // Triggera fade-in animation
-      requestAnimationFrame(() => {
-        div.style.opacity = "1";
-        div.style.transform = "translateY(0)";
-      });
     }
 
-    // Visa sparade böner vid laddning
     window.addEventListener("DOMContentLoaded", () => {
       const list = document.getElementById("prayerList");
       const saved = JSON.parse(sessionStorage.getItem("prayers") || "[]");
