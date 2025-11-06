@@ -114,7 +114,7 @@
   <!-- 🌍 Header -->
   <div id="header-placeholder"></div>
   <script>
-    fetch("../../includes/header.html")
+    fetch("../includes/header.html")
       .then(r => r.text())
       .then(h => (document.getElementById("header-placeholder").innerHTML = h))
       .catch(() => console.warn("❌ Header kunde inte laddas."));
@@ -135,7 +135,7 @@
   <!-- 🌍 Footer-sub -->
   <div id="footer-placeholder"></div>
   <script>
-    fetch("../../includes/footer-sub.html")
+    fetch("../includes/footer-sub.html")
       .then(r => r.text())
       .then(f => (document.getElementById("footer-placeholder").innerHTML = f))
       .catch(() => console.warn("❌ Footer kunde inte laddas."));
